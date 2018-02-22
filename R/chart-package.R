@@ -11,7 +11,9 @@
 #' @name chart-package
 #'
 #' @import ggplot2
-#' @importFrom grid grid.convert
+#' @importFrom rlang abort warn f_env f_lhs f_rhs is_true
+#' @importFrom stats as.formula
+#' @importFrom plyr rename
 NULL
 
 
@@ -20,44 +22,43 @@ NULL
 `%is%` <- function(x, what) # This is more expressive!
   inherits(x, what)
 
+is_call <- is.call
+
+as_call <- as.call
+
+is_name <- is.name
+
 is_null <- is.null # rlang::is_null is much slower!
 
-child_env <- function(.parent, ...) {
-  # A faster child_env() than rlang::child_env(), but that does not convert
-  # .parent and ignores ...
-  new.env(parent = .parent)
+is_factor <- is.factor
+
+is_character <- is.character
+
+is_logical <- is.logical
+
+as_list <- as.list
+
+as_formula <- as.formula
+
+# ggplot2:::is.discrete is not exported. So, I have to clone it here
+.is_discrete <- function(x) {
+  is_factor(x) || is_character(x) || is_logical(x)
 }
 
-# rlang proposes invoke() in place of do.call(), but it is 100x slower! So:
-do_call <- function(what, ...)
-  do.call(what, ...)
+# ggplot2:::rename_aes() is unfortunately not exported...
+# This is a copy from ggplot2 2.2.1
+.rename_aes <- function(x) {
+  full <- match(names(x), .all_aesthetics)
+  names(x)[!is.na(full)] <- .all_aesthetics[full[!is.na(full)]]
+  plyr::rename(x, .base_to_ggplot, warn_missing = FALSE)
+}
 
-# rlang::env_parent(env, n = 1) is supposed to replace parent.env(), but it is
-# 25x time slower, and we don't need to specify something else than n = 1 here.
-# So, we redefine it simply for speed as:
-env_parent <- function(env)
-  parent.env(env)
+.all_aesthetics <- c("adj", "alpha", "angle", "bg", "cex", "col", "color",
+  "colour", "fg", "fill", "group", "hjust", "label", "linetype", "lower", "lty",
+  "lwd", "max", "middle", "min", "pch", "radius", "sample", "shape", "size",
+  "srt", "upper", "vjust", "weight", "width", "x", "xend", "xmax", "xmin",
+  "xintercept", "y", "yend", "ymax", "ymin", "yintercept", "z")
 
-# rlang uses ctxt_frame() and call_frame() in place of base::parent.frame() but
-# it appears more complex for simple use. Hence call_frame(2)$env is the same as
-# parent.frame()... But there is caller_env() as shortcut for the same purpose!
-
-# Again, rlang::is_function is 10x slower than base::is.function(), so:
-is_function <- is.function
-
-# The as_character() and as_string() in rlang are difficult to understand. Here
-# we simply want a function that (tries) to convert anything into character, as
-# as.character() does. So, it is called as_chr()
-as_chr <- as.character
-
-# rlang uses env_has() and env_get() in place of exists() and get(), but with
-# the environment as first argument (and also cannot specify mode). It can
-# extract environments from objects like formulas or quosures, but then, they
-# are more than 10x slower than exists() or get() (and get0()). So, for now, I
-# stick with exists()/get() in my code...
-
-# Further base/utils functions rename for consistent snake_case notation...
-is_chr <- is.character
-is_env <- is.environment
-stop_if_not <- stopifnot
-capture_output <- capture.output
+.base_to_ggplot <- c(col = "colour", color = "colour", pch = "shape",
+  cex = "size", lty = "linetype", lwd = "size", srt = "angle", adj = "hjust",
+  bg = "fill", fg = "colour", min = "ymin", max = "ymax")

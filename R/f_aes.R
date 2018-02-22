@@ -14,13 +14,13 @@
 #' @examples
 #' # TODO...
 f_aes <- function(formula, ..., with.facets = FALSE) {
-  args <- as.list(match.call())[-1]
+  args <- as_list(match.call())[-1]
   args$formula <- NULL
-  ggplot2:::rename_aes(.f_to_aes(formula, args, with.facets = with.facets))
+  .rename_aes(.f_to_aes(formula, args, with.facets = with.facets))
 }
 
 .f_get_args <- function(expr, args = list(x = expr), replace = FALSE) {
-  if (!is.call(expr) || length(expr) < 2)
+  if (!is_call(expr) || length(expr) < 2)
     return(args)
 
   # Check if operator is like `%name=%` or `%name =%`
@@ -53,22 +53,22 @@ f_aes <- function(formula, ..., with.facets = FALSE) {
 
 .f_to_aes <- function(formula, args = list(), with.facets = FALSE) {
   if (missing(formula))
-    stop("'formula' must be provided")
+    abort("'formula' must be provided")
   # Convert formula into x and y aes() arguments
   x <- f_rhs(formula)
   y <- f_lhs(formula)
   # Possibly get facets from y ~ x | facets
-  if (is.call(x) && x[[1]] == '|') {# Extract facets as a formula
+  if (is_call(x) && x[[1]] == '|') {# Extract facets as a formula
     # If facets already exists, do not replace it (provided in the args)
     if (all(names(args) != "facets")) {
       facets <- x[[3]]
       # Could be either w, or w * z
-      if (is.name(facets)) {
-        facets <- as.call(list(quote(`~`), facets))
-      } else if (is.call(facets) && facets[[1]] == '*') {
+      if (is_name(facets)) {
+        facets <- as_call(list(quote(`~`), facets))
+      } else if (is_call(facets) && facets[[1]] == '*') {
         facets[[1]] <- quote(`~`)
       }
-      args$facets <- as.formula(facets, env = f_env(formula))
+      args$facets <- as_formula(facets, env = f_env(formula))
     }
     x <- x[[2]]
   }
@@ -79,8 +79,8 @@ f_aes <- function(formula, ..., with.facets = FALSE) {
   # Further decompose 'x' to get col, size, fill, alpha, ... from formula
   args <- .f_get_args(args$x, args, replace = FALSE)
   # Are we autorized to use facetting in the formula?
-  if (!isTRUE(with.facets) && !is.null(args$facets))
-    stop("Facets are specified but are not autorized in this context (use + facet_grid() or + facte_wrap() instead)")
+  if (!is_true(with.facets) && !is_null(args$facets))
+    abort("Facets are specified but are not autorized in this context (use + facet_grid() or + facet_wrap() instead)")
   # The result of aes() in an 'uneval' object
   class(args) <- "uneval"
   args
