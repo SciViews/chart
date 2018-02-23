@@ -42,16 +42,16 @@ type = NULL, env = parent.frame()) {
     args$formula <- NULL
     args$mapping <- NULL
     args$env <- NULL
-    aes <- .rename_aes(.f_to_aes(formula, args, with.facets = TRUE))
+    mapping <- .rename_aes(.f_to_aes(formula, args, with.facets = TRUE))
     # If mapping is provided, use it to append (and possibly replace) formula items
     #    if (!is.null(mapping))
   }
 
   # Extract facets
-  facets <- aes$facets
-  aes$facets <- NULL
+  facets <- mapping$facets
+  mapping$facets <- NULL
   # Create ggplot object
-  p <- ggplot(data = data, mapping = aes, environment = env)
+  p <- ggplot(data = data, mapping = mapping, environment = env)
   # Add facets, if provided
   if (!is_null(facets)) {
     if (is_null(f_lhs(facets))) {# facets like ~var
@@ -63,18 +63,18 @@ type = NULL, env = parent.frame()) {
   # If type =="auto", automatically add a layer, like qplot() does
   if (!is_null(type)) {
     if (type == "auto") {
-      aes_names <- names(aes)
-      if ("sample" %in% aes_names) {
+      mapping_names <- names(mapping)
+      if ("sample" %in% mapping_names) {
         p <- p + geom_qq()
-      } else if (!'y' %in% aes_names) {
-        x <- eval(aes$x, p$data, env)
+      } else if (!'y' %in% mapping_names) {
+        x <- eval(mapping$x, p$data, env)
         if (.is_discrete(x)) {
           p <- p + geom_bar()
         } else {
           p <- p + geom_histogram() # TODO: select adequate bins!
         }
         #if (missing(ylab)) ylab <- "count"
-      } else if (!'x' %in% aes_names) {
+      } else if (!'x' %in% mapping_names) {
         p <- p + geom_point(aes(x = bquote(seq_along(.(y)))))
       } else {
         p <- p + geom_point()
