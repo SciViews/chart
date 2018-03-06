@@ -80,7 +80,7 @@ f_aes <- function(formula, ..., with.facets = FALSE) {
   args <- .f_get_args(args$x, args, replace = FALSE)
   # Are we autorized to use facetting in the formula?
   if (!is_true(with.facets) && !is_null(args$facets))
-    abort("Facets are specified but are not autorized in this context (use + facet_grid() or + facet_wrap() instead)")
+    abort("Facets are specified but are not autorized in this context (use + facet_grid() or + facet_wrap() instead, or force it using with.facets = TRUE)")
   # The result of aes() in an 'uneval' object
   class(args) <- "uneval"
   args

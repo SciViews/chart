@@ -8,6 +8,7 @@
 #' @param mapping An `aes()` object, as for [ggplot()].
 #' @param ... Further arguments.
 #' @param type The type of plot to produce.
+#' @param auto.labs Are labels (and units) automatically used for axes?
 #' @param env The environment where to evaluated the formula.
 #'
 #'
@@ -26,7 +27,7 @@ chart <- function(data, ..., type = NULL, env = parent.frame()) {
 #' @export
 #' @rdname chart
 chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL, ...,
-type = NULL, env = parent.frame()) {
+type = NULL, auto.labs = TRUE, env = parent.frame()) {
   if (!missing(specif)) {
     if (specif %is% 'formula') {
       formula <- specif
@@ -51,7 +52,11 @@ type = NULL, env = parent.frame()) {
   facets <- mapping$facets
   mapping$facets <- NULL
   # Create ggplot object
-  p <- ggplot(data = data, mapping = mapping, environment = env)
+  # TODO: for the moment, the theme is hardcoded!
+  # TODO: for lattice it would be something like:
+  # xyplot(..., par.settings = .sciviewsliek(n = 6), lattice.options = .sciviewslike_opts())
+  p <- ggplot(data = data, mapping = mapping, environment = env) +
+    theme_sciviews()
   # Add facets, if provided
   if (!is_null(facets)) {
     if (is_null(f_lhs(facets))) {# facets like ~var
@@ -77,12 +82,49 @@ type = NULL, env = parent.frame()) {
       } else if (!'x' %in% mapping_names) {
         p <- p + geom_point(aes(x = bquote(seq_along(.(y)))))
       } else {
+
+        # If x is discrete, make a parallel boxplot if enough points or jitter?
+
+
+
         p <- p + geom_point()
       }
     } else warn("Only type = NULL or type = 'auto' are recognized. Argument ignored")
     # TODO: use geom_<type>() instead
   }
+
+  if (isTRUE(auto.labs)) {
+    data <- p$data
+    labels <- dnames <- names(data)
+    names(labels) <- dnames
+    if (!is.null(dnames)) {
+      for (dname in dnames)
+        labels[[dname]] <- data::label(data[[dname]], units = TRUE)
+      labels <- labels[labels != ""]
+      if (length(labels)) {
+        dnames <- names(labels)
+        maps <- p$mapping
+        if (!is.null(maps)) {
+          mnames <- names(maps)
+          for (mname in mnames) {
+            expr <- maps[[mname]]
+            form <- asOneSidedFormula(expr)
+            vars <- all.vars(form)
+            vars <- vars[vars %in% dnames]
+            for (var in vars) {
+              expr <- pryr::modify_lang(expr, function(x)
+                if (is.name(x) && identical(x, as.name(var)))
+                  as.name(labels[[var]]) else x)
+            }
+            p$labels[[mname]] <- gsub("`", "", deparse(expr))
+          }
+        }
+      }
+    }
+  }
+
   p
   #  } else stop("Objects of type ", paste(class(object), collapse = "/"),
   #    " not supported by chart().", call. = FALSE)
 }
+

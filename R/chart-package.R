@@ -10,14 +10,26 @@
 #' @docType package
 #' @name chart-package
 #'
+#' @import lattice
+#' @importFrom latticeExtra custom.theme ggplot2like ggplot2like.opts
 #' @import ggplot2
+#' @importFrom cowplot theme_cowplot
+#' @importFrom grDevices hcl colorRampPalette
 #' @importFrom rlang abort warn f_env f_lhs f_rhs is_true
-#' @importFrom stats as.formula
-#' @importFrom plyr rename
+#' @importFrom stats as.formula asOneSidedFormula
+#' @importFrom utils modifyList
+#' @importFrom pryr modify_lang
+#' @importFrom data label
+#'
 NULL
 
-
 # Non-exported functions --------------------------------------------------
+
+.onAttach <- function(libname, pkgname) {
+  # Don't load themes automatically, but use them plot by plot instead
+  #ggplot2::theme_set(theme_sciviews())
+  #theme_sciviews_lattice()
+}
 
 `%is%` <- function(x, what) # This is more expressive!
   inherits(x, what)
@@ -33,6 +45,8 @@ is_null <- is.null # rlang::is_null is much slower!
 is_factor <- is.factor
 
 is_character <- is.character
+
+as_character <- as.character
 
 is_logical <- is.logical
 
@@ -50,7 +64,33 @@ as_formula <- as.formula
 .rename_aes <- function(x) {
   full <- match(names(x), .all_aesthetics)
   names(x)[!is.na(full)] <- .all_aesthetics[full[!is.na(full)]]
-  plyr::rename(x, .base_to_ggplot, warn_missing = FALSE)
+  .rename(x, .base_to_ggplot)
+}
+
+# This is plyr::rename(), but since plyr seems deprecated in favor of dplyr and
+# purrr, we don't want to depend on it... So, this is our own version
+.rename <- function(x, replace, warn_duplicated = TRUE) {
+  names <- names(x)
+  new_names <- as_character(replace[names])
+  not_replaced <- is.na(new_names)
+  new_names[not_replaced] <- names[not_replaced]
+  duplicated_names <- new_names[duplicated(new_names)]
+  if (warn_duplicated && length(duplicated_names)) {
+    if (length(duplicated_names) == 1) {
+      duplicated_names_message <- paste0(
+        "Found duplicate for the name `",
+        duplicated_names, "`")
+    } else {
+      duplicated_names_message <- paste0("`", duplicated_names,
+        "`", collapse = ", ")
+      duplicated_names_message <- paste0(
+        "Found duplicates for the following names: (",
+      duplicated_names_message, ")")
+    }
+    warn(duplicated_names_message)
+  }
+  names(x) <- new_names
+  x
 }
 
 .all_aesthetics <- c("adj", "alpha", "angle", "bg", "cex", "col", "color",

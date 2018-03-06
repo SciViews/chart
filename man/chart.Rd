@@ -8,7 +8,8 @@
 chart(data, ..., type = NULL, env = parent.frame())
 
 \method{chart}{default}(data, specif = NULL, formula = NULL,
-  mapping = NULL, ..., type = NULL, env = parent.frame())
+  mapping = NULL, ..., type = NULL, auto.labs = TRUE,
+  env = parent.frame())
 }
 \arguments{
 \item{data}{The dataset (a \code{data.frame} or \code{tibble}, usually).}
@@ -24,6 +25,8 @@ chart(data, ..., type = NULL, env = parent.frame())
 \item{formula}{A formula.}
 
 \item{mapping}{An \code{aes()} object, as for \code{\link[=ggplot]{ggplot()}}.}
+
+\item{auto.labs}{Are labels (and units) automatically used for axes?}
 }
 \description{
 \code{chart()} provides a unified interface for base plots, lattice and ggplot2.

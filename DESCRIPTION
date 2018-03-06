@@ -1,14 +1,14 @@
 Package: chart
 Type: Package
-Version: 1.0.0
+Version: 1.0.1
 Title: General Charting (Plotting) Function
 Description: Chart generalizes plot generation in R, being with base R plot
   function, lattice or ggplot2. A formula interface is available for both.
 Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
   email = "phgrosjean@sciviews.org"))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
-Depends: R (>= 3.3.0), ggplot2
-Imports: stats, rlang, plyr
+Depends: R (>= 3.3.0), lattice, ggplot2
+Imports: stats, utils, rlang, cowplot, grDevices, latticeExtra, pryr, data
 Suggests: covr, knitr, testthat
 Encoding: UTF-8
 ByteCompile: yes
