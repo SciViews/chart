@@ -14,12 +14,13 @@
 #' @importFrom latticeExtra custom.theme ggplot2like ggplot2like.opts
 #' @import ggplot2
 #' @importFrom cowplot theme_cowplot
-#' @importFrom grDevices hcl colorRampPalette
+#' @importFrom grDevices hcl colorRampPalette dev.off
 #' @importFrom rlang abort warn f_env f_lhs f_rhs is_true
 #' @importFrom stats as.formula asOneSidedFormula
 #' @importFrom utils modifyList
 #' @importFrom pryr modify_lang
 #' @importFrom data label
+#' @importFrom ggplotify as.ggplot
 #'
 NULL
 

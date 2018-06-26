@@ -20,14 +20,63 @@
 #' @concept R plots with graphics, lattice or ggplot2
 #' @examples
 #' # TODO..
-chart <- function(data, ..., type = NULL, env = parent.frame()) {
+#'
+#' # base R graphics
+#' chart(function() hist(rnorm(50)))
+#' # ... or if the expression is provided directly, specify it is a base chart
+#' chart(hist(rnorm(50)), type = "base")
+#' # ... or more concisely:
+#' chart$base(hist(rnorm(50)))
+#'
+#' # A lattice plot
+#' chart$histogram(iris, ~ Sepal.Length)
+chart <- structure(function(data, ..., type = NULL, env = parent.frame()) {
   UseMethod("chart")
-}
+}, class = c("function", "subsettable_type"))
 
 #' @export
 #' @rdname chart
-chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL, ...,
-type = NULL, auto.labs = TRUE, env = parent.frame()) {
+#' @method chart default
+chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
+..., type = NULL, auto.labs = TRUE, env = parent.frame()) {
+  # TODO: return a chart object!!! (inheriting from "gg", "ggplot")
+  # TODO: add lattice, autoplot and plot methods too!
+  if (!is.null(type) && type != "auto") {
+    if (type == "base") { # Try using the expression in 'data' for making a plot
+      if (is.function(data)) {
+        fun <- data
+      } else {
+        fun <- function() NULL
+        body(fun, envir = env) <- substitute(data)
+      }
+      # TODO: inject code for "theming" the base plot here
+      # TODO: add labels...
+      res <- try(as.ggplot(fun), silent = TRUE)
+      if (inherits(res, "try-error")) {
+        dev.off()
+        stop("It seems no plot was generated with this code")
+      }
+      return(res)
+
+    } else if (substring(type, 1, 5) != "geom_") {
+      # TODO: theme and labels!
+      fun <- get0(type, envir = env, mode = "function")
+      if (is.null(fun))
+        stop("function '", type, "' not found")
+      if (!missing(specif))
+        formula <- specif
+      # TODO: possibly use formula= instead + specif and data mix
+      # TODO: lattice funs are fun(x, data, ...)
+      # TODO: apply theme locally only + allow selecting the theme
+      theme_sciviews_lattice()
+      res <- try(as.ggplot(fun(formula, data = data, ...)), silent = TRUE)
+      if (inherits(res, "try-error"))
+        stop("no plot was obtained")
+      return(res)
+    }
+  }
+
+  # This should be a ggplot chart
   if (!missing(specif)) {
     if (specif %is% 'formula') {
       formula <- specif
@@ -65,7 +114,7 @@ type = NULL, auto.labs = TRUE, env = parent.frame()) {
       p <- p + facet_grid(facets)
     }
   }
-  # If type =="auto", automatically add a layer, like qplot() does
+  # If type == "auto", automatically add a layer, like qplot() does
   if (!is_null(type)) {
     if (type == "auto") {
       mapping_names <- names(mapping)
@@ -128,3 +177,25 @@ type = NULL, auto.labs = TRUE, env = parent.frame()) {
   #    " not supported by chart().", call. = FALSE)
 }
 
+#' @export
+#' @rdname chart
+#' @method chart function
+chart.function <- function(data, ..., type = NULL, auto.labs = TRUE,
+env = parent.frame()) {
+  # TODO: inject code for "theming" the base plot here
+  # TODO: add labels...
+  res <- try(as.ggplot(data), silent = TRUE)
+  if (inherits(res, "try-error")) {
+    dev.off()
+    stop("It seems no plot was generated with this code")
+  }
+  res
+}
+
+#' @export
+#' @rdname chart
+#' @param x A `subsettable_type` function.
+#' @param name The value to use for the `type=` argument.
+#' @method $ subsettable_type
+`$.subsettable_type` <- function(x, name)
+  function(...) x(type = name, ...)
