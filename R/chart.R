@@ -19,17 +19,26 @@
 #' @keywords hplot
 #' @concept R plots with graphics, lattice or ggplot2
 #' @examples
-#' # TODO..
+#' urchin <- data::read("urchin_bio", package = "data", lang = "en")
 #'
 #' # base R graphics
-#' chart(function() hist(rnorm(50)))
+#' hist(urchin$height)
+#' # ... translates to:
+#' chart(function() hist(urchin$height))
 #' # ... or if the expression is provided directly, specify it is a base chart
-#' chart(hist(rnorm(50)), type = "base")
+#' chart(hist(urchin$height), type = "base")
 #' # ... or more concisely:
-#' chart$base(hist(rnorm(50)))
+#' chart$base(hist(urchin$height))
 #'
 #' # A lattice plot
-#' chart$histogram(iris, ~ Sepal.Length)
+#' histogram(~ height, data = urchin)
+#' chart$histogram(urchin, ~ height)
+#'
+#' # ggplot2 histogram
+#' ggplot(urchin, aes(height)) + geom_histogram()
+#' #... or with chart (notice similarities with lattice version)
+#' chart(urchin,  ~ height) + geom_histogram()
+#' chart$geom_histogram(urchin,  ~ height)
 chart <- structure(function(data, ..., type = NULL, env = parent.frame()) {
   UseMethod("chart")
 }, class = c("function", "subsettable_type"))
@@ -39,7 +48,6 @@ chart <- structure(function(data, ..., type = NULL, env = parent.frame()) {
 #' @method chart default
 chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
 ..., type = NULL, auto.labs = TRUE, env = parent.frame()) {
-  # TODO: return a chart object!!! (inheriting from "gg", "ggplot")
   # TODO: add lattice, autoplot and plot methods too!
   if (!is.null(type) && type != "auto") {
     if (type == "base") { # Try using the expression in 'data' for making a plot
@@ -49,17 +57,29 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
         fun <- function() NULL
         body(fun, envir = env) <- substitute(data)
       }
-      # TODO: inject code for "theming" the base plot here
-      # TODO: add labels...
+
+      # Customize theme
+      opal <- palette()
+      opar <- par(no.readonly = TRUE)
+      on.exit({palette(opal); par(opar)})
+      theme_sciviews_graphics()
+
       res <- try(as.ggplot(fun), silent = TRUE)
       if (inherits(res, "try-error")) {
         dev.off()
         stop("It seems no plot was generated with this code")
       }
+      class(res) <- unique(c("Chart", class(res)))
       return(res)
 
     } else if (substring(type, 1, 5) != "geom_") {
       # TODO: theme and labels!
+
+      # Temporary change the theme
+      opar <- trellis.par.get()
+      theme_sciviews_lattice()
+      on.exit(trellis.par.set(theme = opar, strict = 2))
+
       fun <- get0(type, envir = env, mode = "function")
       if (is.null(fun))
         stop("function '", type, "' not found")
@@ -72,11 +92,12 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
       res <- try(as.ggplot(fun(formula, data = data, ...)), silent = TRUE)
       if (inherits(res, "try-error"))
         stop("no plot was obtained")
+      class(res) <- unique(c("Chart", class(res)))
       return(res)
     }
   }
 
-  # This should be a ggplot chart
+  # This should be a ggplot2 chart
   if (!missing(specif)) {
     if (specif %is% 'formula') {
       formula <- specif
@@ -93,7 +114,7 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
     args$mapping <- NULL
     args$env <- NULL
     mapping <- .rename_aes(.f_to_aes(formula, args, with.facets = TRUE))
-    # If mapping is provided, use it to append (and possibly replace) formula items
+    # If mapping is provided, use it to append (or replace) formula items
     #    if (!is.null(mapping))
   }
 
@@ -103,7 +124,8 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
   # Create ggplot object
   # TODO: for the moment, the theme is hardcoded!
   # TODO: for lattice it would be something like:
-  # xyplot(..., par.settings = .sciviewsliek(n = 6), lattice.options = .sciviewslike_opts())
+  # xyplot(..., par.settings = .sciviewslike(n = 6),
+  #   lattice.options = .sciviewslike_opts())
   p <- ggplot(data = data, mapping = mapping, environment = env) +
     theme_sciviews()
   # Add facets, if provided
@@ -133,13 +155,16 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
       } else {
 
         # If x is discrete, make a parallel boxplot if enough points or jitter?
-
-
+        # TODO ...
 
         p <- p + geom_point()
       }
-    } else warn("Only type = NULL or type = 'auto' are recognized. Argument ignored")
-    # TODO: use geom_<type>() instead
+    } else {# This should be geom_xxx
+      fun <- get0(type, envir = env, mode = "function")
+      if (is.null(fun))
+        stop("function '", type, "' not found")
+      p <- p + fun()
+    }
   }
 
   if (isTRUE(auto.labs)) {
@@ -172,6 +197,8 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
     }
   }
 
+  if (inherits(p, "ggplot"))
+    class(p) <- unique(c("Chart", class(p)))
   p
   #  } else stop("Objects of type ", paste(class(object), collapse = "/"),
   #    " not supported by chart().", call. = FALSE)
@@ -189,6 +216,7 @@ env = parent.frame()) {
     dev.off()
     stop("It seems no plot was generated with this code")
   }
+  class(res) <- unique(c("Chart", class(res)))
   res
 }
 

@@ -46,17 +46,26 @@ chart(data, ..., type = NULL, env = parent.frame())
 ....
 }
 \examples{
-# TODO..
+urchin <- data::read("urchin_bio", package = "data", lang = "en")
 
 # base R graphics
-chart(function() hist(rnorm(50)))
+hist(urchin$height)
+# ... translates to:
+chart(function() hist(urchin$height))
 # ... or if the expression is provided directly, specify it is a base chart
-chart(hist(rnorm(50)), type = "base")
+chart(hist(urchin$height), type = "base")
 # ... or more concisely:
-chart$base(hist(rnorm(50)))
+chart$base(hist(urchin$height))
 
 # A lattice plot
-chart$histogram(iris, ~ Sepal.Length)
+histogram(~ height, data = urchin)
+chart$histogram(urchin, ~ height)
+
+# ggplot2 histogram
+ggplot(urchin, aes(height)) + geom_histogram()
+#... or with chart (notice similarities with lattice version)
+chart(urchin,  ~ height) + geom_histogram()
+chart$geom_histogram(urchin,  ~ height)
 }
 \seealso{
 \code{\link[=f_aes]{f_aes()}}, \code{\link[=ggplot]{ggplot()}}

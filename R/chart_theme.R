@@ -116,7 +116,11 @@ theme_sciviews_lattice <- function(...) {
 
 #' @export
 #' @rdname chart_theme
-theme_sciviews_graphics <- NULL
+theme_sciviews_graphics <- function(...) {
+  # Set the palette to colors similar to those in ggplot2 and lattice
+  # but we keep first (usually 'black'), and last (usually 'gray') colors
+  palette(c("black", hue_pal()(6), "gray"))
+}
 
 #' @export
 #' @rdname chart_theme

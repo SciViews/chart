@@ -5,7 +5,7 @@
 \alias{chart-package}
 \title{Chart, unified interface for R plots}
 \description{
-Unification of base plots, lattice and ggplot2, providing a formula interface
+Unification of base plots, lattice and ggplot2, providing a single interface
 for all three plot engines.
 }
 \section{Important functions}{

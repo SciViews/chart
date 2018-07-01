@@ -1,6 +1,6 @@
 #' Chart, unified interface for R plots
 #'
-#' Unification of base plots, lattice and ggplot2, providing a formula interface
+#' Unification of base plots, lattice and ggplot2, providing a single interface
 #' for all three plot engines.
 #'
 #' @section Important functions:
@@ -10,11 +10,15 @@
 #' @docType package
 #' @name chart-package
 #'
+#' @import grDevices
+# @importFrom grDevices hcl colorRampPalette dev.off palette
+#' @import graphics
+# @importFrom graphics, par
 #' @import lattice
 #' @importFrom latticeExtra custom.theme ggplot2like ggplot2like.opts
 #' @import ggplot2
+#' @importFrom scales hue_pal
 #' @importFrom cowplot theme_cowplot
-#' @importFrom grDevices hcl colorRampPalette dev.off
 #' @importFrom rlang abort warn f_env f_lhs f_rhs is_true
 #' @importFrom stats as.formula asOneSidedFormula
 #' @importFrom utils modifyList
@@ -30,6 +34,7 @@ NULL
   # Don't load themes automatically, but use them plot by plot instead
   #ggplot2::theme_set(theme_sciviews())
   #theme_sciviews_lattice()
+  #theme_sciviews_graphics()
 }
 
 `%is%` <- function(x, what) # This is more expressive!
