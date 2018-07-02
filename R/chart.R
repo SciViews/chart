@@ -64,7 +64,19 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
       on.exit({palette(opal); par(opar)})
       theme_sciviews_graphics()
 
-      res <- try(as.ggplot(fun), silent = TRUE)
+      res <- try(as.ggplot(suppressWarnings(fun)), silent = TRUE)
+      if (inherits(res, "try-error")) {
+        dev.off()
+        stop("It seems no plot was generated with this code")
+      }
+      class(res) <- unique(c("Chart", class(res)))
+      return(res)
+
+    } else if (type == "plot") {
+      # Use the plot generic function, which is supposed to give a base graphic
+      # TODO: change theme, and perhaps, add labels
+      res <- try(suppressWarnings(as.ggplot(function() plot(data, ...))),
+        silent = TRUE)
       if (inherits(res, "try-error")) {
         dev.off()
         stop("It seems no plot was generated with this code")
@@ -182,7 +194,7 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
           mnames <- names(maps)
           for (mname in mnames) {
             expr <- maps[[mname]]
-            form <- asOneSidedFormula(expr)
+            form <- asOneSidedFormula(as.character(expr))
             vars <- all.vars(form)
             vars <- vars[vars %in% dnames]
             for (var in vars) {
