@@ -5,6 +5,8 @@
 \alias{chart.default}
 \alias{chart.function}
 \alias{$.subsettable_type}
+\alias{chart}
+\alias{combine_charts}
 \title{Create charts}
 \usage{
 chart(data, ..., type = NULL, env = parent.frame())
@@ -17,6 +19,8 @@ chart(data, ..., type = NULL, env = parent.frame())
   env = parent.frame())
 
 \method{$}{subsettable_type}(x, name)
+
+combine_charts(chartlist, ncol = NULL, nrow = NULL, labels = "AUTO", ...)
 }
 \arguments{
 \item{data}{The dataset (a \code{data.frame} or \code{tibble}, usually).}
@@ -38,9 +42,25 @@ chart(data, ..., type = NULL, env = parent.frame())
 \item{x}{A \code{subsettable_type} function.}
 
 \item{name}{The value to use for the \code{type=} argument.}
+
+\item{chartlist}{List of charts to combine.}
+
+\item{ncol}{(optional) number of columns in the plot grid.}
+
+\item{nrow}{(optional) number of rows in the plot grid.}
+
+\item{labels}{(optional) labels to use for each individual plot. \code{"AUTO"}
+(default value) auto-generates uppercase labels, and \code{"auto"} does the same
+for lowercase labels.}
+}
+\value{
+An object of class \code{ggarrange} containing a list of \code{ggplot}s.
 }
 \description{
 \code{chart()} provides a unified interface for base plots, lattice and ggplot2.
+
+Assemble multiple charts on the same page. Wrapper arround \code{\link[=ggarrange]{ggarrange()}} with
+different defaults.
 }
 \details{
 ....
@@ -66,11 +86,16 @@ ggplot(urchin, aes(height)) + geom_histogram()
 #... or with chart (notice similarities with lattice version)
 chart(urchin,  ~ height) + geom_histogram()
 chart$geom_histogram(urchin,  ~ height)
+urchin <- data::read("urchin_bio", package = "data", lang = "en")
 }
 \seealso{
 \code{\link[=f_aes]{f_aes()}}, \code{\link[=ggplot]{ggplot()}}
+
+\code{\link[=chart]{chart()}}, \code{\link[=ggarrange]{ggarrange()}}
 }
 \concept{
 R plots with graphics, lattice or ggplot2
+
+Combine plots on the same page
 }
 \keyword{hplot}

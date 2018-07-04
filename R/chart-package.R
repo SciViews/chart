@@ -25,6 +25,7 @@
 #' @importFrom pryr modify_lang
 #' @importFrom data label
 #' @importFrom ggplotify as.ggplot
+#' @importFrom ggpubr ggarrange
 #'
 NULL
 

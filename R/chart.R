@@ -52,10 +52,19 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
   if (!is.null(type) && type != "auto") {
     if (type == "base") { # Try using the expression in 'data' for making a plot
       if (is.function(data)) {
-        fun <- data
+        plot_base <- data
       } else {
-        fun <- function() NULL
-        body(fun, envir = env) <- substitute(data)
+        plot_base <- function() NULL
+        body(plot_base, envir = env) <- substitute(data)
+      }
+      fun <- function() {
+        par(pch = 16, las = 1, cex.axis = 0.8)
+        plot_base()
+        rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4],
+          col = "white") # A trick to get white plot area only (with transp. bg)
+        grid(lty = "solid")
+        par(new = TRUE)
+        plot_base()
       }
 
       # Customize theme
@@ -75,8 +84,16 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
     } else if (type == "plot") {
       # Use the plot generic function, which is supposed to give a base graphic
       # TODO: change theme, and perhaps, add labels
-      res <- try(suppressWarnings(as.ggplot(function() plot(data, ...))),
-        silent = TRUE)
+      fun <- function() {
+        par(pch = 16, las = 1, cex.axis = 0.8)
+        plot(data, ...)
+        rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4],
+          col = "white") # A trick to get white plot area only (with transp. bg)
+        grid(lty = "solid")
+        par(new = TRUE)
+        plot(data, ...)
+      }
+      res <- try(suppressWarnings(as.ggplot(fun)), silent = TRUE)
       if (inherits(res, "try-error")) {
         dev.off()
         stop("It seems no plot was generated with this code")
@@ -239,3 +256,31 @@ env = parent.frame()) {
 #' @method $ subsettable_type
 `$.subsettable_type` <- function(x, name)
   function(...) x(type = name, ...)
+
+#' Combine charts
+#'
+#' Assemble multiple charts on the same page. Wrapper arround [ggarrange()] with
+#' different defaults.
+#'
+#' @param chartlist List of charts to combine.
+#' @param ncol (optional) number of columns in the plot grid.
+#' @param nrow (optional) number of rows in the plot grid.
+#' @param labels (optional) labels to use for each individual plot. `"AUTO"`
+#' (default value) auto-generates uppercase labels, and `"auto"` does the same
+#' for lowercase labels.
+#' @params ... Further arguments to [ggarrange()].
+#' @return An object of class `ggarrange` containing a list of `ggplot`s.
+#' @export
+#' @name chart
+#' @seealso [chart()], [ggarrange()]
+#' @keywords hplot
+#' @concept Combine plots on the same page
+#' @examples
+#' urchin <- data::read("urchin_bio", package = "data", lang = "en")
+combine_charts <- function(chartlist, ncol = NULL, nrow = NULL, labels = "AUTO",
+  ...)
+  ggpubr::ggarrange(plotlist = chartlist, ncol = ncol, nrow = nrow,
+    labels = labels, ...)
+
+#' @export
+ggpubr::ggarrange

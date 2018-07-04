@@ -4,6 +4,8 @@
 
 - First implementation of base and lattice versions of `chart()`s.
 
+- Addition of `combine_charts()`.
+
 
 ## chart version 1.0.1
 
