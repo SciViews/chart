@@ -19,7 +19,7 @@
 #' @keywords hplot
 #' @concept R plots with graphics, lattice or ggplot2
 #' @examples
-#' urchin <- data::read("urchin_bio", package = "data", lang = "en")
+#' urchin <- data.io::read("urchin_bio", package = "data.io", lang = "en")
 #'
 #' # base R graphics
 #' hist(urchin$height)
@@ -38,7 +38,7 @@
 #' ggplot(urchin, aes(height)) + geom_histogram()
 #' #... or with chart (notice similarities with lattice version)
 #' chart(urchin,  ~ height) + geom_histogram()
-#' chart$geom_histogram(urchin,  ~ height)
+#' #chart$geom_histogram(urchin,  ~ height)
 chart <- structure(function(data, ..., type = NULL, env = parent.frame()) {
   UseMethod("chart")
 }, class = c("function", "subsettable_type"))
@@ -192,7 +192,10 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
       fun <- get0(type, envir = env, mode = "function")
       if (is.null(fun))
         stop("function '", type, "' not found")
+      # With ggplot2 3.0.0, this does not work any more, due to tidyeval
       p <- p + fun()
+      # This does not work too!
+      #eval(parse(text = paste0("p <- p + ", type, "()")))
     }
   }
 
@@ -202,7 +205,7 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
     names(labels) <- dnames
     if (!is.null(dnames)) {
       for (dname in dnames)
-        labels[[dname]] <- data::label(data[[dname]], units = TRUE)
+        labels[[dname]] <- data.io::label(data[[dname]], units = TRUE)
       labels <- labels[labels != ""]
       if (length(labels)) {
         dnames <- names(labels)
@@ -266,17 +269,16 @@ env = parent.frame()) {
 #' @param ncol (optional) number of columns in the plot grid.
 #' @param nrow (optional) number of rows in the plot grid.
 #' @param labels (optional) labels to use for each individual plot. `"AUTO"`
+#' @param ... further arguments passed to [ggarrange()].
 #' (default value) auto-generates uppercase labels, and `"auto"` does the same
 #' for lowercase labels.
-#' @params ... Further arguments to [ggarrange()].
 #' @return An object of class `ggarrange` containing a list of `ggplot`s.
 #' @export
-#' @name chart
 #' @seealso [chart()], [ggarrange()]
 #' @keywords hplot
 #' @concept Combine plots on the same page
 #' @examples
-#' urchin <- data::read("urchin_bio", package = "data", lang = "en")
+#' # TODO...
 combine_charts <- function(chartlist, ncol = NULL, nrow = NULL, labels = "AUTO",
   ...)
   ggpubr::ggarrange(plotlist = chartlist, ncol = ncol, nrow = nrow,

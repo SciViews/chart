@@ -23,7 +23,7 @@
 #' @importFrom stats as.formula asOneSidedFormula
 #' @importFrom utils modifyList
 #' @importFrom pryr modify_lang
-#' @importFrom data label
+#' @importFrom data.io label
 #' @importFrom ggplotify as.ggplot
 #' @importFrom ggpubr ggarrange
 #'
