@@ -10,6 +10,7 @@ Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 Depends: R (>= 3.3.0), lattice, ggplot2
 Imports: stats, utils, rlang, cowplot, grDevices, graphics, scales, latticeExtra, pryr, data.io, ggplotify, ggpubr
 Suggests: covr, knitr, testthat
+Remotes: SciViews/data.io
 Encoding: UTF-8
 ByteCompile: yes
 LazyData: true
