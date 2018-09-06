@@ -4,7 +4,7 @@
 #' **chart**.
 #'
 #' @param formula A formula.
-#' @param ... Further aesthetics to set (like `size`, `colour`, et.)
+#' @param ... Further aesthetics to set (like `size`, `colour`, etc.)
 #' @param with.facets Do we create special (non-ggplot2) aesthetics for facets
 #' (no by default)?
 #'

@@ -2,7 +2,7 @@
 #'
 #' Lattice and ggplot2 provide themes for their plots, while with base R plots,
 #' one specifies appearance through [par()]. `chart_theme()` tries to get the
-#' plot appearance as uniform as possible beteen the three plot engines. So,
+#' plot appearance as uniform as possible between the three plot engines. So,
 #' setting themes this way change the appearance of all three kinds of plots.
 #'
 #' @param theme The theme to apply (character string).
@@ -10,7 +10,7 @@
 #' @param font_family The default font family in this theme.
 #' @param line_size The default line size in this theme.
 #' @param ... Arguments passed to [ggplot2like()], the most used being `n=` for
-#' the number of colours to generate in the palette.
+#' the number of colors to generate in the palette.
 #'
 #' @export
 #' @seealso [chart()], [theme()], [trellis.par.set()]
@@ -48,7 +48,8 @@ theme_sciviews <- function(font_size = 12, font_family = "", line_size = .5) {
       plot.background   = element_rect(fill = "transparent", colour = NA),
       strip.background  = element_rect(fill = "grey80", colour = "black",
         size = 0.5, linetype = "solid"),
-      strip.text.x      = element_text(margin = margin(0.15 ,0.1, 0.15 ,0.1, "cm")),
+      strip.text.x      = element_text(margin =
+          margin(0.15 ,0.1, 0.15 ,0.1, "cm")),
       axis.line = element_line(colour = "black", size = 0.5),
       complete = TRUE
     )
@@ -65,7 +66,8 @@ h.start = 0, direction = 1, low = "#3B4FB8", high = "#B71B1A", space = "rgb") {
     h[2] <- h[2] - 360 / n
   }
 
-  colseq <- grDevices::hcl(h = rotate(seq(h[1], h[2], length = n)), c = c, l = l)
+  colseq <- grDevices::hcl(h = rotate(seq(h[1], h[2], length = n)),
+    c = c, l = l)
   ramp <- grDevices::colorRampPalette(c(low, high), space = space,
     interpolate = "linear")(100)
 
@@ -73,7 +75,8 @@ h.start = 0, direction = 1, low = "#3B4FB8", high = "#B71B1A", space = "rgb") {
     region = ramp)
   theme <- modifyList(theme, list(
     scales            = list(alternating = 1),
-    layout.heights    = list(bottom.padding = 0.2, top.padding = 0.2, strip = 1.2),
+    layout.heights    = list(bottom.padding = 0.2, top.padding = 0.2,
+      strip = 1.2),
     layout.widths     = list(left.padding = 0.4, right.padding = 0.2),
     axis.components   = list(left   = list(pad1 = 0.8, pad2 = 0.8),
                              top    = list(pad1 = 0.8, pad2 = 0.8),

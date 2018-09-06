@@ -262,7 +262,7 @@ env = parent.frame()) {
 
 #' Combine charts
 #'
-#' Assemble multiple charts on the same page. Wrapper arround [ggarrange()] with
+#' Assemble multiple charts on the same page. Wrapper around [ggarrange()] with
 #' different defaults.
 #'
 #' @param chartlist List of charts to combine.
