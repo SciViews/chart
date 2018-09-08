@@ -17,7 +17,8 @@
 #' @import lattice
 #' @importFrom latticeExtra custom.theme ggplot2like ggplot2like.opts
 #' @import ggplot2
-#' @importFrom scales hue_pal
+#' @importFrom viridis viridis_pal
+#' @importFrom scales hue_pal gradient_n_pal
 #' @importFrom cowplot theme_cowplot
 #' @importFrom rlang abort warn f_env f_lhs f_rhs is_true
 #' @importFrom stats as.formula asOneSidedFormula
@@ -36,6 +37,11 @@ NULL
   #ggplot2::theme_set(theme_sciviews())
   #theme_sciviews_lattice()
   #theme_sciviews_graphics()
+  # Use viridis continuous palettes by default with ggplot2 charts
+  if (is.null(getOption("ggplot2.continuous.fill")))
+    options(ggplot2.continuous.fill = "viridis")
+  if (is.null(getOption("ggplot2.continuous.colour")))
+    options(ggplot2.continuous.colour = "viridis")
 }
 
 `%is%` <- function(x, what) # This is more expressive!

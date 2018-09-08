@@ -23,7 +23,7 @@ for lowercase labels.}
 An object of class \code{ggarrange} containing a list of \code{ggplot}s.
 }
 \description{
-Assemble multiple charts on the same page. Wrapper arround \code{\link[=ggarrange]{ggarrange()}} with
+Assemble multiple charts on the same page. Wrapper around \code{\link[=ggarrange]{ggarrange()}} with
 different defaults.
 }
 \examples{

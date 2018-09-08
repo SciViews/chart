@@ -9,7 +9,7 @@ f_aes(formula, ..., with.facets = FALSE)
 \arguments{
 \item{formula}{A formula.}
 
-\item{...}{Further aesthetics to set (like \code{size}, \code{colour}, et.)}
+\item{...}{Further aesthetics to set (like \code{size}, \code{colour}, etc.)}
 
 \item{with.facets}{Do we create special (non-ggplot2) aesthetics for facets
 (no by default)?}

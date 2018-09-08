@@ -43,12 +43,12 @@ theme_svmap_graphics()
 \item{line_size}{The default line size in this theme.}
 
 \item{...}{Arguments passed to \code{\link[=ggplot2like]{ggplot2like()}}, the most used being \code{n=} for
-the number of colours to generate in the palette.}
+the number of colors to generate in the palette.}
 }
 \description{
 Lattice and ggplot2 provide themes for their plots, while with base R plots,
 one specifies appearance through \code{\link[=par]{par()}}. \code{chart_theme()} tries to get the
-plot appearance as uniform as possible beteen the three plot engines. So,
+plot appearance as uniform as possible between the three plot engines. So,
 setting themes this way change the appearance of all three kinds of plots.
 }
 \examples{
