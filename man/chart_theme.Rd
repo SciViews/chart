@@ -57,7 +57,5 @@ setting themes this way change the appearance of all three kinds of plots.
 \seealso{
 \code{\link[=chart]{chart()}}, \code{\link[=theme]{theme()}}, \code{\link[=trellis.par.set]{trellis.par.set()}}
 }
-\concept{
-Themes for R plots with graphics, lattice or ggplot2
-}
+\concept{Themes for R plots with graphics, lattice or ggplot2}
 \keyword{color}

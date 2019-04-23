@@ -17,31 +17,31 @@ scale_colour_viridis_c(..., alpha = 1, begin = 0, end = 1,
   direction = 1, option = "D", values = NULL, space = "Lab",
   na.value = "grey50", guide = "colourbar", aesthetics = "colour")
 
-scale_color_viridis_c(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  option = "D", values = NULL, space = "Lab", na.value = "grey50",
-  guide = "colourbar", aesthetics = "colour")
+scale_color_viridis_c(..., alpha = 1, begin = 0, end = 1,
+  direction = 1, option = "D", values = NULL, space = "Lab",
+  na.value = "grey50", guide = "colourbar", aesthetics = "colour")
 
 scale_colour_viridis_d(..., alpha = 1, begin = 0, end = 1,
   direction = 1, option = "D", aesthetics = "colour")
 
-scale_color_viridis_d(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  option = "D", aesthetics = "colour")
+scale_color_viridis_d(..., alpha = 1, begin = 0, end = 1,
+  direction = 1, option = "D", aesthetics = "colour")
 
-scale_fill_viridis_c(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  option = "D", values = NULL, space = "Lab", na.value = "grey50",
-  guide = "colourbar", aesthetics = "fill")
+scale_fill_viridis_c(..., alpha = 1, begin = 0, end = 1,
+  direction = 1, option = "D", values = NULL, space = "Lab",
+  na.value = "grey50", guide = "colourbar", aesthetics = "fill")
 
-scale_fill_viridis_d(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  option = "D", aesthetics = "fill")
+scale_fill_viridis_d(..., alpha = 1, begin = 0, end = 1,
+  direction = 1, option = "D", aesthetics = "fill")
 
-scale_colour_continuous(..., type = getOption("ggplot2.continuous.colour",
-  default = "gradient"))
+scale_colour_continuous(...,
+  type = getOption("ggplot2.continuous.colour", default = "gradient"))
 
 scale_color_continuous(..., type = getOption("ggplot2.continuous.colour",
   default = "gradient"))
 
-scale_fill_continuous(..., type = getOption("ggplot2.continuous.fill", default
-  = "gradient"))
+scale_fill_continuous(..., type = getOption("ggplot2.continuous.fill",
+  default = "gradient"))
 }
 \arguments{
 \item{...}{Other arguments passed on to \code{\link[=discrete_scale]{discrete_scale()}} or
@@ -114,7 +114,5 @@ combine_charts(
 \seealso{
 \code{\link[=chart]{chart()}}, \code{\link[=chart_theme]{chart_theme()}}
 }
-\concept{
-Viridis colors
-}
+\concept{Viridis colors}
 \keyword{color}

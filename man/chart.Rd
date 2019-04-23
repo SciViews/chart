@@ -70,7 +70,5 @@ chart(urchin,  ~ height) + geom_histogram()
 \seealso{
 \code{\link[=f_aes]{f_aes()}}, \code{\link[=ggplot]{ggplot()}}
 }
-\concept{
-R plots with graphics, lattice or ggplot2
-}
+\concept{R plots with graphics, lattice or ggplot2}
 \keyword{hplot}

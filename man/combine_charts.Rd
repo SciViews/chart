@@ -4,7 +4,8 @@
 \alias{combine_charts}
 \title{Combine charts}
 \usage{
-combine_charts(chartlist, ncol = NULL, nrow = NULL, labels = "AUTO", ...)
+combine_charts(chartlist, ncol = NULL, nrow = NULL, labels = "AUTO",
+  ...)
 }
 \arguments{
 \item{chartlist}{List of charts to combine.}
@@ -32,7 +33,5 @@ different defaults.
 \seealso{
 \code{\link[=chart]{chart()}}, \code{\link[=ggarrange]{ggarrange()}}
 }
-\concept{
-Combine plots on the same page
-}
+\concept{Combine plots on the same page}
 \keyword{hplot}

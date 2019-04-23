@@ -48,6 +48,7 @@ chart <- structure(function(data, ..., type = NULL, env = parent.frame()) {
 #' @method chart default
 chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
 ..., type = NULL, auto.labs = TRUE, env = parent.frame()) {
+  force(env)
   # TODO: add lattice, autoplot and plot methods too!
   if (!is.null(type) && type != "auto") {
     if (type == "base") { # Try using the expression in 'data' for making a plot
