@@ -48,8 +48,8 @@ chart <- structure(function(data, ..., type = NULL, env = parent.frame()) {
 #' @method chart default
 chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
 ..., type = NULL, auto.labs = TRUE, env = parent.frame()) {
-  force(env)
   # TODO: add lattice, autoplot and plot methods too!
+  force(env)
   if (!is.null(type) && type != "auto") {
     if (type == "base") { # Try using the expression in 'data' for making a plot
       if (is.function(data)) {
@@ -142,6 +142,8 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
     args$specif <- NULL
     args$formula <- NULL
     args$mapping <- NULL
+    args$type <- NULL
+    args$auto.labs <- NULL
     args$env <- NULL
     mapping <- .rename_aes(.f_to_aes(formula, args, with.facets = TRUE))
     # If mapping is provided, use it to append (or replace) formula items
@@ -215,7 +217,11 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
           mnames <- names(maps)
           for (mname in mnames) {
             expr <- maps[[mname]]
-            form <- asOneSidedFormula(as.character(expr))
+            if (is_quosure(expr)) {
+              form <- unclass(expr)
+            } else {
+              form <- asOneSidedFormula(as.character(expr))
+            }
             vars <- all.vars(form)
             vars <- vars[vars %in% dnames]
             for (var in vars) {
@@ -223,7 +229,7 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
                 if (is.name(x) && identical(x, as.name(var)))
                   as.name(labels[[var]]) else x)
             }
-            p$labels[[mname]] <- gsub("`", "", deparse(expr))
+            p$labels[[mname]] <- sub("^~", "", gsub("`", "", deparse(expr)))
           }
         }
       }

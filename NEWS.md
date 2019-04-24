@@ -2,6 +2,13 @@
 
 ## chart version 1.2.0
 
+- Two bugs in chart.default() that appeared with ggplot 3.0 are solved.
+
+- ggplot2 3.0 viridis palettes are not needed any more and are thus eliminated.
+
+
+## chart version 1.2.0
+
 - The functions to use viridis palettes in ggplot2 are cloned here from ggplot2
   v. 3.0.0, in order to use them also with older ggplot2 plots.
 
