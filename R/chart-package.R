@@ -20,7 +20,7 @@
 #' @importFrom viridis viridis_pal
 #' @importFrom scales hue_pal gradient_n_pal
 #' @importFrom cowplot theme_cowplot
-#' @importFrom rlang abort warn f_env f_lhs f_rhs is_true
+#' @importFrom rlang abort warn f_env f_lhs f_rhs is_true is_quosure
 #' @importFrom stats as.formula asOneSidedFormula
 #' @importFrom utils modifyList
 #' @importFrom pryr modify_lang
