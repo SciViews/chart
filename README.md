@@ -1,6 +1,6 @@
 # chart - Unified interface (with formula) for R plots
 
-[![Linux & OSX Build Status](https://travis-ci.org/SciViews/chart.svg )](https://travis-ci.org/SciViews/chart)
+[![Linux & OSX Build Status](https://travis-ci.com/SciViews/chart.svg )](https://travis-ci.com/SciViews/chart)
 [![Win Build Status](https://ci.appveyor.com/api/projects/status/github/SciViews/chart?branch=master&svg=true)](http://ci.appveyor.com/project/phgrosjean/chart)
 [![Coverage Status](https://img.shields.io/codecov/c/github/SciViews/chart/master.svg)
 ](https://codecov.io/github/SciViews/chart?branch=master)
