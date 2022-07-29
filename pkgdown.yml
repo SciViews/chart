@@ -1,0 +1,8 @@
+pandoc: 2.7.3
+pkgdown: 2.0.6
+pkgdown_sha: ~
+articles:
+  chart_rationate: chart_rationate.html
+  chart_tutorial: chart_tutorial.html
+last_built: 2022-07-29T08:44Z
+
