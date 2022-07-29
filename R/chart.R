@@ -182,8 +182,9 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
           p <- p + geom_histogram() # TODO: select adequate bins!
         }
         #if (missing(ylab)) ylab <- "count"
-      } else if (!'x' %in% mapping_names) {
-        p <- p + geom_point(aes(x = bquote(seq_along(.(y)))))
+      # PhG: got an R CMD Check note that y is not defined!
+      #} else if (!'x' %in% mapping_names) {
+      #  p <- p + geom_point(aes(x = bquote(seq_along(.(y)))))
       } else {
 
         # If x is discrete, make a parallel boxplot if enough points or jitter?

@@ -42,7 +42,7 @@ theme_svmap_graphics()
 
 \item{line_size}{The default line size in this theme.}
 
-\item{...}{Arguments passed to \code{\link[=ggplot2like]{ggplot2like()}}, the most used being \code{n=} for
+\item{...}{Arguments passed to \code{\link[=ggplot2like]{ggplot2like()}}, the most used being \verb{n=} for
 the number of colors to generate in the palette.}
 }
 \description{

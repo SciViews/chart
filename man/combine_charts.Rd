@@ -4,8 +4,7 @@
 \alias{combine_charts}
 \title{Combine charts}
 \usage{
-combine_charts(chartlist, ncol = NULL, nrow = NULL, labels = "AUTO",
-  ...)
+combine_charts(chartlist, ncol = NULL, nrow = NULL, labels = "AUTO", ...)
 }
 \arguments{
 \item{chartlist}{List of charts to combine.}

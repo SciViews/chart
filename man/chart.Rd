@@ -9,12 +9,18 @@
 \usage{
 chart(data, ..., type = NULL, env = parent.frame())
 
-\method{chart}{default}(data, specif = NULL, formula = NULL,
-  mapping = NULL, ..., type = NULL, auto.labs = TRUE,
-  env = parent.frame())
+\method{chart}{default}(
+  data,
+  specif = NULL,
+  formula = NULL,
+  mapping = NULL,
+  ...,
+  type = NULL,
+  auto.labs = TRUE,
+  env = parent.frame()
+)
 
-\method{chart}{function}(data, ..., type = NULL, auto.labs = TRUE,
-  env = parent.frame())
+\method{chart}{`function`}(data, ..., type = NULL, auto.labs = TRUE, env = parent.frame())
 
 \method{$}{subsettable_type}(x, name)
 }
@@ -37,7 +43,7 @@ chart(data, ..., type = NULL, env = parent.frame())
 
 \item{x}{A \code{subsettable_type} function.}
 
-\item{name}{The value to use for the \code{type=} argument.}
+\item{name}{The value to use for the \verb{type=} argument.}
 }
 \description{
 \code{chart()} provides a unified interface for base plots, lattice and ggplot2.
