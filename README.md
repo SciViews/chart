@@ -1,61 +1,55 @@
 # chart - Unified interface (with formula) for R plots
 
-[![Linux & OSX Build Status](https://travis-ci.com/SciViews/chart.svg )](https://travis-ci.com/SciViews/chart)
-[![Win Build Status](https://ci.appveyor.com/api/projects/status/github/SciViews/chart?branch=master&svg=true)](https://ci.appveyor.com/project/phgrosjean/chart)
-[![Coverage Status](https://img.shields.io/codecov/c/github/SciViews/chart/master.svg)
-](https://codecov.io/github/SciViews/chart?branch=master)
-[![CRAN Status](https://www.r-pkg.org/badges/version/chart)](http://cran.r-project.org/package=chart)
-[![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+<!-- badges: start -->
 
+[![R-CMD-check](https://github.com/SciViews/chart/workflows/R-CMD-check/badge.svg)](https://github.com/SciViews/chart/actions) [![Win build status](https://ci.appveyor.com/api/projects/status/github/SciViews/chart?branch=master&svg=true)](https://ci.appveyor.com/project/phgrosjean/chart) [![Coverage status](https://img.shields.io/codecov/c/github/SciViews/chart/master.svg)](https://codecov.io/github/SciViews/chart?branch=master) [![CRAN status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![R-CMD-check](https://github.com/SciViews/chart/workflows/R-CMD-check/badge.svg)](https://github.com/SciViews/chart/actions)
+<!-- badges: end -->
+
+{chart} propose a formulua interface to {ggplot2}, and it also homogenize plot outputs from base R plots, {lattice} and {ggplot}. If labels and/or units attributes are defined for variables in the data, they are used automatically to construct the label (with units) of the axes.
 
 ## Installation
 
-### Latest stable version
+You can install the released version of {chart} from [CRAN](https://CRAN.R-project.org) with:
 
-The latest stable version of **chart** can simply be installed from [CRAN](http://cran.r-project.org):
-
-```r
+``` r
 install.packages("chart")
 ```
 
+You can also install the latest development version. Make sure you have the {remotes} R package installed:
 
-### Development version
-
-Make sure you have the **devtools** R package installed:
-
-```r
-install.packages("devtools")
+``` r
+install.packages("remotes")
 ```
 
-Use `install_github()` to install the **chart** package from Github (source from **master** branch will be recompiled on your machine):
+Use `install_github()` to install the {chart} package from GitHub (source from **master** branch will be recompiled on your machine):
 
-```r
-devtools::install_github("SciViews/chart", build_vignettes = TRUE)
+``` r
+remotes::install_github("SciViews/chart")
 ```
 
-R should install all required dependencies automatically, and then it should compile and install **chart**.
+R should install all required dependencies automatically, and then it should compile and install {chart}.
 
-Latest devel version of **chart** (source + Windows binaires for the latest stable version of R at the time of compilation) is also available from [appveyor](https://ci.appveyor.com/project/phgrosjean/chart/build/artifacts).
+Latest development version of {chart} (source + Windows binaries for the latest stable version of R at the time of compilation) is also available from [appveyor](https://ci.appveyor.com/project/phgrosjean/chart/build/artifacts).
 
+## Further explore {chart}
 
-## Usage
+You can get further help about this package this way: Make the {chart} package available in your R session:
 
-Make the **chart** package available in your R session:
-
-```r
+``` r
 library("chart")
 ```
 
 Get help about this package:
 
-```r
+``` r
 library(help = "chart")
 help("chart-package")
+vignette("chart") # Not installed with install_github()
 ```
 
-For further instructions, please, refer to these help pages.
+For further instructions, please, refer to the help pages at <https://www.sciviews.org/chart/>.
 
+## Code of Conduct
 
-## Note to developers
-
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that the {chart} package is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
