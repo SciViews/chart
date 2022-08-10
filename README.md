@@ -2,11 +2,11 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/SciViews/chart/workflows/R-CMD-check/badge.svg)](https://github.com/SciViews/chart/actions) [![Win build status](https://ci.appveyor.com/api/projects/status/github/SciViews/chart?branch=master&svg=true)](https://ci.appveyor.com/project/phgrosjean/chart) [![Coverage status](https://img.shields.io/codecov/c/github/SciViews/chart/master.svg)](https://codecov.io/github/SciViews/chart?branch=master) [![CRAN status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![R-CMD-check](https://github.com/SciViews/chart/workflows/R-CMD-check/badge.svg)](https://github.com/SciViews/chart/actions)
+[![R-CMD-check](https://github.com/SciViews/chart/workflows/R-CMD-check/badge.svg)](https://github.com/SciViews/chart/actions) [![Win build status](https://ci.appveyor.com/api/projects/status/github/SciViews/chart?branch=master&svg=true)](https://ci.appveyor.com/project/phgrosjean/chart) [![Coverage status](https://img.shields.io/codecov/c/github/SciViews/chart/master.svg)](https://codecov.io/github/SciViews/chart?branch=master) [![CRAN status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable) [![R-CMD-check](https://github.com/SciViews/chart/workflows/R-CMD-check/badge.svg)](https://github.com/SciViews/chart/actions)
+
 <!-- badges: end -->
 
-{chart} propose a formulua interface to {ggplot2}, and it also homogenize plot outputs from base R plots, {lattice} and {ggplot}. If labels and/or units attributes are defined for variables in the data, they are used automatically to construct the label (with units) of the axes.
+{chart} propose a formula interface to {ggplot2}, and it also homogenize plot outputs from base R plots, {lattice} and {ggplot}. If labels and/or units attributes are defined for variables in the data, they are used automatically to construct the label (with units) of the axes.
 
 ## Installation
 
