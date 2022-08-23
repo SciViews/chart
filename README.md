@@ -6,7 +6,7 @@
 
 <!-- badges: end -->
 
-{chart} propose a formula interface to {ggplot2}, and it also homogenize plot outputs from base R plots, {lattice} and {ggplot}. If labels and/or units attributes are defined for variables in the data, they are used automatically to construct the label (with units) of the axes.
+{chart} proposes a formula interface to {ggplot2}, and it also homogenize plot outputs from base R plots, {lattice} and {ggplot}. If labels and/or units attributes are defined for variables in the data, they are used automatically to construct the label (with units) of the axes.
 
 ## Installation
 

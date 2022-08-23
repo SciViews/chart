@@ -22,7 +22,7 @@
 #' @importFrom cowplot theme_cowplot
 #' @importFrom rlang abort warn f_env f_lhs f_rhs is_true is_quosure
 #' @importFrom stats as.formula asOneSidedFormula
-#' @importFrom utils modifyList
+#' @importFrom utils .DollarNames apropos modifyList
 #' @importFrom pryr modify_lang
 #' @importFrom data.io label
 #' @importFrom ggplotify as.ggplot
