@@ -2,7 +2,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml) [![Coverage status](https://img.shields.io/codecov/c/github/SciViews/chart/master.svg)](https://codecov.io/github/SciViews/chart?branch=master) [![CRAN status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable) [![R-CMD-check](https://github.com/SciViews/chart/workflows/R-CMD-check/badge.svg)](https://github.com/SciViews/chart/actions)
+[![R-CMD-check](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml) [![Coverage status](https://img.shields.io/codecov/c/github/SciViews/chart/master.svg)](https://codecov.io/github/SciViews/chart?branch=master) [![CRAN status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 
 <!-- badges: end -->
 
@@ -29,8 +29,6 @@ remotes::install_github("SciViews/chart")
 ```
 
 R should install all required dependencies automatically, and then it should compile and install {chart}.
-
-Latest development version of {chart} (source + Windows binaries for the latest stable version of R at the time of compilation) is also available from [appveyor](https://ci.appveyor.com/project/phgrosjean/chart/build/artifacts).
 
 ## Further explore {chart}
 
