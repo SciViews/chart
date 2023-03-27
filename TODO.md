@@ -2,6 +2,8 @@
 
 -   `autoplot()` and `plot()` methods (+ `hist()`, etc.)
 
+-   `autoplot()`, and `chart()` methods for lmer objects
+
 -   Implement `.DollarNames()` to get a list of `chart()` types available, with a mechanism to add more types from additional packages.
 
 -   Refine themes and look at themes for {lattice} and base.
