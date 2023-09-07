@@ -1,6 +1,6 @@
 Package: chart
 Type: Package
-Version: 1.4.0
+Version: 1.5.0
 Title: General Charting (Plotting) Function
 Description: Chart generalizes plot generation in R, being with base R plot
   function, lattice or ggplot2. A formula interface is available for both
@@ -26,7 +26,8 @@ Imports:
     scales,
     stats,
     utils,
-    viridis
+    viridis,
+    svMisc
 Suggests:
     MASS,
     covr,
@@ -40,7 +41,7 @@ License: GPL-2
 URL: https://github.com/SciViews/chart, https://www.sciviews.org/chart/
 BugReports: https://github.com/SciViews/chart/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US

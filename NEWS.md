@@ -1,3 +1,7 @@
+# chart 1.5.0
+
+-   The `gg()` subsettable function is now called `Sgg()` and it implements `svMisc:aka()` and `svMisc::section()` to sort items in different sections. 
+
 # chart 1.4.0
 
 -   The `gg()` subsettable function allows to use the pipe instead of the `+` in ggplot2, like `ggplot() |> gg$geom_point()`. Also, a completion list is available when typing `gg$<tab>`.

@@ -20,13 +20,14 @@
 #' @importFrom viridis viridis_pal
 #' @importFrom scales hue_pal gradient_n_pal
 #' @importFrom cowplot theme_cowplot
-#' @importFrom rlang abort warn f_env f_lhs f_rhs is_true is_quosure
+#' @importFrom rlang abort warn env_label f_env f_lhs f_rhs is_true is_quosure
 #' @importFrom stats as.formula asOneSidedFormula
 #' @importFrom utils .DollarNames apropos modifyList
 #' @importFrom pryr modify_lang
 #' @importFrom data.io label
 #' @importFrom ggplotify as.ggplot
 #' @importFrom ggpubr ggarrange
+#' @importFrom svMisc aka section
 #'
 NULL
 
