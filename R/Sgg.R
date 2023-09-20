@@ -72,6 +72,7 @@ Sgg <- structure(function(ggplot, ...) {
 #' @rdname Sgg
 #' @method $ subsettable_Sgg
 `$.subsettable_Sgg` <- function(x, name) {
+  # We use ggtitle(), but also allow title()
   if (name == "title")
     name <- "ggtitle"
   if (grepl("o__", name)) {
@@ -100,7 +101,7 @@ Sgg <- structure(function(ggplot, ...) {
       o__GEOMETRIES__ = construct_section("o__GEOMETRIES__", obj,
         apropos("^geom_")),
       o__AXES_LABELS__ = construct_section("o__AXES_LABELS__", obj,
-        c("expand_limits", "guides", "labs", "lims", "title",
+        c("expand_limits", "guides", "labs", "lims", "ggtitle",
         "xlab", "xlim", "ylab", "ylim")),
       o__STATS__ = construct_section("o__STATS__", obj,
         apropos("^stat_")),
@@ -149,7 +150,7 @@ Sgg <- structure(function(ggplot, ...) {
   l <- c(l, apropos(paste0("^geom_", pattern)))
   l <- c(l, "o__AXES_LABELS__")
   l <- c(l, "expand_limits", "guides", "labs", "lims",
-    "title", # Instead of ggtitle (special case!)
+    "ggtitle", # No, not any more! Instead of ggtitle (special case!)
     "xlab", "xlim", "ylab", "ylim")
   l <- c(l, "o__STATS__")
   l <- c(l, apropos(paste0("^stat_", pattern)))

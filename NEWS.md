@@ -1,3 +1,7 @@
+# chart 1.5.1
+
+-   `sgg()` now prefers using `Sgg$ggtitle()`, but `Sgg$title()` is accepted as well.
+
 # chart 1.5.0
 
 -   The `gg()` subsettable function is now called `Sgg()` and it implements `svMisc:aka()` and `svMisc::section()` to sort items in different sections. 

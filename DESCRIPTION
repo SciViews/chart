@@ -1,6 +1,6 @@
 Package: chart
 Type: Package
-Version: 1.5.0
+Version: 1.5.1
 Title: General Charting (Plotting) Function
 Description: Chart generalizes plot generation in R, being with base R plot
   function, lattice or ggplot2. A formula interface is available for both
