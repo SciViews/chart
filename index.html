@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>General Charting (Plotting) Function • chart</title>
+<title>General Charting (Plotting) Functions • chart</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -21,11 +21,9 @@
 <script src="pkgdown.js"></script><!-- svPkgdown --><script src="script.js"></script><!-- themify icon --><link rel="stylesheet" href="themify-icons.css?nocache=123">
 <!--<link rel="stylesheet" href="style.css?nocache=123">--><!-- bootstrat v4.1.1, required CSS from more recent version --><link rel="stylesheet" href="bootstrap.more.css?nocache=123">
 <link href="style.css?nocache=123" rel="stylesheet">
-<!-- end of addition for svPkgdown --><meta property="og:title" content="General Charting (Plotting) Function">
-<meta property="og:description" content="Chart generalizes plot generation in R, being with base R plot
-  function, lattice or ggplot2. A formula interface is available for both
-  ggplot2 and lattice.">
-<meta property="og:image" content="https://www.sciviews.org/svMisc/logo.png">
+<!-- end of addition for svPkgdown --><meta property="og:title" content="General Charting (Plotting) Functions">
+<meta property="og:description" content="Chart generalizes plot generation in R, being with base R plot function, lattice or ggplot2. A formula interface is available for both ggplot2 and lattice.">
+<meta property="og:image" content="https://www.sciviews.org/chart/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- Mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" async integrity="sha256-nlrDrBTHxJJlDDX22AS33xYI1OJHnGMDhiYMSe2U0e0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/config/TeX-AMS-MML_HTMLorMML.js" async integrity="sha256-4zys9A4hMQmtq2EUL+JRoXc0NZi8jVJMzb8onewOaSQ=" crossorigin="anonymous"></script><!-- Global site tag (gtag.js) - Google Analytics --><!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-462421-8"></script>
 <script>
@@ -75,6 +73,9 @@
       <!-- end svPkgdown global site search with Google -->
       <ul class="nav navbar-nav navbar-right">
 <li>
+  <a href="articles/chart.html">Get started</a>
+</li>
+<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -103,7 +104,7 @@
 </li>
       </ul>
 <div class="navbar-title">
-        <a class="navbar-brand" href="index.html"><p class="h2">chart <small>v1.4.0</small></p></a>
+        <a class="navbar-brand" href="index.html"><p class="h2">chart <small>v1.5.2</small></p></a>
       </div>
     </div>
 <!--/.nav-collapse -->
@@ -127,13 +128,14 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the released version of {chart} from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
+<p>{chart} is not available from CRAN yet. You should install it from the <a href="https://sciviews.r-universe.dev" class="external-link">SciViews R-Universe</a>. The {data.io} package is useful too because it manages labels and units that {chart} uses. To install those two packages and their dependencies, run the following command in R:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"chart"</span><span class="op">)</span></span></code></pre></div>
-<p>You can also install the latest development version. Make sure you have the {remotes} R package installed:</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'chart'</span>, <span class="st">'data.io'</span><span class="op">)</span>,</span>
+<span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'https://sciviews.r-universe.dev'</span>, <span class="st">'https://cloud.r-project.org'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>You can also install the latest development version of {chart}. Make sure you have the {remotes} R package installed:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span></code></pre></div>
-<p>Use <code>install_github()</code> to install the {chart} package from GitHub (source from <strong>master</strong> branch will be recompiled on your machine):</p>
+<p>Use <code>install_github()</code> to install the {chart} package from GitHub (source from <strong>main</strong> branch will be recompiled on your machine):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"SciViews/chart"</span><span class="op">)</span></span></code></pre></div>
 <p>R should install all required dependencies automatically, and then it should compile and install {chart}.</p>
@@ -141,15 +143,21 @@
 <div class="section level2">
 <h2 id="further-explore-chart">Further explore {chart}<a class="anchor" aria-label="anchor" href="#further-explore-chart"></a>
 </h2>
-<p>You can get further help about this package this way: Make the {chart} package available in your R session:</p>
+<p>Starting from the <code>airquality</code> from {datasets}, here is a first {chart}:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/SciViews/chart" class="external-link">chart</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">airquality</span>, package <span class="op">=</span> <span class="st">"datasets"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/chart.html">chart</a></span><span class="op">(</span><span class="va">airquality</span>, <span class="va">Ozone</span> <span class="op">~</span> <span class="va">Solar.R</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>You can get further help about this package this way: Make the {chart} package available in your R session:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/SciViews/chart" class="external-link">"chart"</a></span><span class="op">)</span></span></code></pre></div>
 <p>Get help about this package:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span>help <span class="op">=</span> <span class="st">"chart"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/help.html" class="external-link">help</a></span><span class="op">(</span><span class="st">"chart-package"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"chart"</span><span class="op">)</span> <span class="co"># Not installed with install_github()</span></span></code></pre></div>
-<p>For further instructions, please, refer to the help pages at <a href="https://www.sciviews.org/chart/" class="external-link uri">https://www.sciviews.org/chart/</a>.</p>
+<p>For further instructions, please, refer to the help pages at <a href="https://www.sciviews.org/chart/" class="uri">https://www.sciviews.org/chart/</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>

@@ -1,11 +1,12 @@
-pandoc: 2.19.2
-pkgdown: 2.0.7
+pandoc: 3.1.11
+pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
   chart_rationate: chart_rationate.html
   chart_tutorial: chart_tutorial.html
-last_built: 2023-03-27T13:29Z
+  chart: chart.html
+last_built: 2024-04-27T07:43Z
 urls:
-  reference: https://www.sciviews.org/svMisc/reference
-  article: https://www.sciviews.org/svMisc/articles
+  reference: https://www.sciviews.org/chart/reference
+  article: https://www.sciviews.org/chart/articles
 

@@ -1,57 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.sciviews.org/svMisc/404.html</loc>
+    <loc>https://www.sciviews.org/chart/404.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/CODE_OF_CONDUCT.html</loc>
+    <loc>https://www.sciviews.org/chart/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/LICENSE.html</loc>
+    <loc>https://www.sciviews.org/chart/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/TODO.html</loc>
+    <loc>https://www.sciviews.org/chart/TODO.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/articles/chart_rationate.html</loc>
+    <loc>https://www.sciviews.org/chart/articles/chart.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/articles/chart_tutorial.html</loc>
+    <loc>https://www.sciviews.org/chart/articles/chart_rationate.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/articles/index.html</loc>
+    <loc>https://www.sciviews.org/chart/articles/chart_tutorial.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/authors.html</loc>
+    <loc>https://www.sciviews.org/chart/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/index.html</loc>
+    <loc>https://www.sciviews.org/chart/authors.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/news/index.html</loc>
+    <loc>https://www.sciviews.org/chart/index.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/reference/chart-package.html</loc>
+    <loc>https://www.sciviews.org/chart/news/index.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/reference/chart.html</loc>
+    <loc>https://www.sciviews.org/chart/reference/Sgg.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/reference/chart_theme.html</loc>
+    <loc>https://www.sciviews.org/chart/reference/chart-package.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/reference/combine_charts.html</loc>
+    <loc>https://www.sciviews.org/chart/reference/chart.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/reference/f_aes.html</loc>
+    <loc>https://www.sciviews.org/chart/reference/chart_theme.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/reference/gg.html</loc>
+    <loc>https://www.sciviews.org/chart/reference/combine_charts.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/reference/index.html</loc>
+    <loc>https://www.sciviews.org/chart/reference/f_aes.html</loc>
   </url>
   <url>
-    <loc>https://www.sciviews.org/svMisc/reference/reexports.html</loc>
+    <loc>https://www.sciviews.org/chart/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/chart/reference/reexports.html</loc>
   </url>
 </urlset>
