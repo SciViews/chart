@@ -1,7 +1,5 @@
 ---
 title: "Chart - General Charting (Plotting) Functions"
-author: "Philippe Grosjean"
-date: "`r Sys.Date()`"
 author: "Philippe Grosjean (phgrosjean@sciviews.org)"
 date: "`r Sys.Date()`"
 output:
@@ -26,4 +24,14 @@ library(chart)
 
 In R, there are several plotting engines, but the three major ones are the base {graphics} package (here called "base plot"), {lattice} and {ggplot2}. Each of them has its own philosophy and syntax. The plots they produce have distinctive look, even if they can be tailored to different styles. The {chart} package provides a unified interface to these three plotting engines.
 
-The
+The goal of {chart} is:
+
+-   to provide a unified interface to the three major plotting engines in R;
+-   to make all three types of plots intercompatible in a composite figure;
+-   to propose a default style for the plots that is consistent across the three engines and close enough to a publication-ready style;
+-   to use automatically labels and units for axes, when possible;
+-   to expose an formula-base interface as an alternative for {ggplot2} users;
+-   to implement various (customisable) plot types for different R objects.
+
+## Installation
+

@@ -1,7 +1,5 @@
 ---
 title: "Chart, unified interface to R plots"
-author: "Philippe Grosjean"
-date: "`r Sys.Date()`"
 author: "Philippe Grosjean (phgrosjean@sciviews.org)"
 date: "`r Sys.Date()`"
 output:
