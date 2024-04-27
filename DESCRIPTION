@@ -1,7 +1,7 @@
 Package: chart
 Type: Package
-Version: 1.5.1
-Title: General Charting (Plotting) Function
+Version: 1.5.2
+Title: General Charting (Plotting) Functions
 Description: Chart generalizes plot generation in R, being with base R plot
   function, lattice or ggplot2. A formula interface is available for both
   ggplot2 and lattice.
@@ -36,7 +36,8 @@ Suggests:
     spelling,
     testthat 
 Remotes:
-    SciViews/data.io
+    SciViews/data.io,
+    SciViews/svMisc
 License: GPL-2
 URL: https://github.com/SciViews/chart, https://www.sciviews.org/chart/
 BugReports: https://github.com/SciViews/chart/issues
@@ -46,3 +47,4 @@ VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US
 ByteCompile: yes
+Config/testthat/edition: 3

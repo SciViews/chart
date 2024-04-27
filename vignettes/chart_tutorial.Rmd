@@ -1,8 +1,10 @@
 ---
 title: "Tutorial to the chart interface for R plots"
-author: "Philippe Grosjean"
+author: "Philippe Grosjean (phgrosjean@sciviews.org)"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes
 vignette: >
   %\VignetteIndexEntry{Tutorial to the chart interface for R plots}
   %\VignetteEngine{knitr::rmarkdown}
@@ -15,6 +17,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+library(chart)
 ```
 
 ...

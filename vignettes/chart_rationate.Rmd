@@ -2,7 +2,11 @@
 title: "Chart, unified interface to R plots"
 author: "Philippe Grosjean"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+author: "Philippe Grosjean (phgrosjean@sciviews.org)"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes
 vignette: >
   %\VignetteIndexEntry{Chart, unified interface to R plots}
   %\VignetteEngine{knitr::rmarkdown}
@@ -15,6 +19,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+library(chart)
 ```
 
 ## Formula versus arguments

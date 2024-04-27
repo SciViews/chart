@@ -2,7 +2,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml) [![Coverage status](https://img.shields.io/codecov/c/github/SciViews/chart/master.svg)](https://codecov.io/github/SciViews/chart?branch=master) [![CRAN status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![R-CMD-check](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml) [![Coverage status](https://img.shields.io/codecov/c/github/SciViews/chart/master.svg)](https://codecov.io/github/SciViews/chart?branch=main) [![CRAN status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 
 <!-- badges: end -->
 
@@ -10,19 +10,20 @@
 
 ## Installation
 
-You can install the released version of {chart} from [CRAN](https://CRAN.R-project.org) with:
+{chart} is not available from CRAN yet. You should install it from the [SciViews R-Universe](https://sciviews.r-universe.dev). The {data.io} package is useful too because it manages labels and units that {chart} uses. To install those two packages and their dependencies, run the following command in R:
 
-``` r
-install.packages("chart")
+```r
+install.packages(c('chart', 'data.io'),
+  repos = c('https://sciviews.r-universe.dev', 'https://cloud.r-project.org'))
 ```
 
-You can also install the latest development version. Make sure you have the {remotes} R package installed:
+You can also install the latest development version of {chart}. Make sure you have the {remotes} R package installed:
 
 ``` r
 install.packages("remotes")
 ```
 
-Use `install_github()` to install the {chart} package from GitHub (source from **master** branch will be recompiled on your machine):
+Use `install_github()` to install the {chart} package from GitHub (source from **main** branch will be recompiled on your machine):
 
 ``` r
 remotes::install_github("SciViews/chart")
@@ -31,6 +32,15 @@ remotes::install_github("SciViews/chart")
 R should install all required dependencies automatically, and then it should compile and install {chart}.
 
 ## Further explore {chart}
+
+Starting from the `airquality` from {datasets}, here is a first {chart}:
+
+``` r
+library(chart)
+data(airquality, package = "datasets")
+chart(airquality, Ozone ~ Solar.R) +
+  geom_point()
+```
 
 You can get further help about this package this way: Make the {chart} package available in your R session:
 

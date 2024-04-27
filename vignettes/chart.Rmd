@@ -1,0 +1,29 @@
+---
+title: "Chart - General Charting (Plotting) Functions"
+author: "Philippe Grosjean"
+date: "`r Sys.Date()`"
+author: "Philippe Grosjean (phgrosjean@sciviews.org)"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes
+vignette: >
+  %\VignetteIndexEntry{Chart - General Charting (Plotting) Functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(chart)
+```
+
+## Introduction
+
+In R, there are several plotting engines, but the three major ones are the base {graphics} package (here called "base plot"), {lattice} and {ggplot2}. Each of them has its own philosophy and syntax. The plots they produce have distinctive look, even if they can be tailored to different styles. The {chart} package provides a unified interface to these three plotting engines.
+
+The

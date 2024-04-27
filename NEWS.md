@@ -1,6 +1,10 @@
+# chart 1.5.2
+
+-   Documentation (vignettes et README file) are completed.
+
 # chart 1.5.1
 
--   `sgg()` now prefers using `Sgg$ggtitle()`, but `Sgg$title()` is accepted as well.
+-   `Sgg()` now prefers using `Sgg$ggtitle()`, but `Sgg$title()` is accepted as well.
 
 # chart 1.5.0
 
