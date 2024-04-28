@@ -1,10 +1,11 @@
 Package: chart
 Type: Package
 Version: 1.5.2
-Title: General Charting (Plotting) Functions
+Title: Unified Interface (with Formula) for R Plots
 Description: Chart generalizes plot generation in R, being with base R plot
   function, lattice or ggplot2. A formula interface is available for both
-  ggplot2 and lattice.
+  ggplot2 and lattice. The function 'chart()' automatically uses labels and
+  units if they are defined in the data.
 Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
   email = "phgrosjean@sciviews.org",
   comment = c(ORCID = "0000-0002-2694-9471")))

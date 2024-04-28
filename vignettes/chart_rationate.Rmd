@@ -1,5 +1,5 @@
 ---
-title: "Chart, unified interface to R plots"
+title: "Chart, Unified Interface to R Plots"
 author: "Philippe Grosjean (phgrosjean@sciviews.org)"
 date: "`r Sys.Date()`"
 output:
@@ -13,14 +13,76 @@ vignette: >
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>",
+  fig.width = 6, fig.height = 4.5, out.width = "95%")
 library(chart)
 ```
 
-## Formula versus arguments
+## Formula versus `aes()`
 
-...
+Since the formula interface is used extensively in R to specify models, it is a little bit strange that corresponding plots with {ggplot2} must be specified in a totally different way. The {chart} package allows to specify the same "aesthetics" through the familiar formula interface. For instance, here is a simple model:
 
+```{r}
+data(trees)
+trees_lm <- lm(Volume ~ Girth, data = trees)
+summary(trees_lm)
+```
+Our model is specified with `Volume ~ Girth`, which must be translated into `aes(x = Girth, y = Volume)` in {ggplot2}. A common pitfall for beginners is to invert X and Y here because they appear in a different order in both interfaces.
+
+```{r}
+library(ggplot2)
+ggplot(trees, aes(x = Girth, y = Volume)) +
+  geom_point() +
+  geom_smooth(method = "lm", formula = 'y ~ x')
+```
+
+
+With {chart}, we can use the formula interface directly:
+
+```{r}
+library(chart)
+chart(trees, Volume ~ Girth) +
+  geom_point() +
+  geom_smooth(method = "lm", formula = 'y ~ x')
+```
+
+Of course, it is not necessarily the **same** formula that is used for the model and the chart. The formula interface has different meaning, depending on the function that uses it. To specify more aestethics in {chart} than just `x` and `y`, we use `%arg=%` terms. For instance, to specify the color of the points, we use `%col=%`:
+
+```{r}
+chart(trees, Volume ~ Girth %col=% Height) +
+  geom_point()
+```
+
+## The generic function `chart()`
+
+On the contrary to `ggplot()`, `chart()` is a generic. It means you do not have to specify a **data frame** for `data =`, but you can provide any object that has `chart()`, or `autoplot()` methods defined. There are not many methods defined in the {chart} package itself. Here is the method for **function** objects that create base R plots, converted into {chart} compatible objects:
+
+```{r}
+chart(function() {
+  plot(Volume ~ Girth, data = trees, pch = 19, col = "black")
+  grid(lty = "solid")
+})
+```
+
+The {chart} package is designed as a basic framework to implement several methods for different R objects. It uses the "subsettable type" semantic, that is, its `type =` argument can define different plots for the same object class, and then, calling `chart$<type>(....)` produces the given type of plot for your object.
+
+TODO: make a short example here.
+
+See packages like [{modelit}](https://www.sciviews.org/modelit/) or [{exploreit}](https://www.sciviews.org/exploreit/) for several examples of such methods.
+
+## `chart()` produces near publication-ready plots
+
+Another aspect of `chart()` is that it is tailored to produce plots that are as close as possible to be publication-ready (but they. remain fully editable with {ggplot2} functions, of course). Hence, the default theme, and the labels of axes or legends are set up accordingly. If the data frame has **label** and **units** attributes defined for the variables, they are used to construct the labels of the axes and legends. Here is an example with the `trees` dataset:
+
+```{r} 
+trees <- data.io::labelise(trees, label = list(
+    Volume = "Volume of timber",
+    Girth  = "Diameter at 1.4m",
+    Height = "Height"
+  ), units = list(
+    Volume = "cubic feet",
+    Girth  = "inches",
+    Height = "feet"))
+chart(trees, Volume ~ Girth %col=% Height) +
+  geom_point()
+```

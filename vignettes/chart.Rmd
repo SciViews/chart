@@ -1,12 +1,12 @@
 ---
-title: "Chart - General Charting (Plotting) Functions"
+title: "Chart - Unified Interface (with Formula) for R Plots"
 author: "Philippe Grosjean (phgrosjean@sciviews.org)"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
     fig_caption: yes
 vignette: >
-  %\VignetteIndexEntry{Chart - General Charting (Plotting) Functions}
+  %\VignetteIndexEntry{Chart - Unified Interface (with Formula) for R Plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   \usepackage[utf8]{inputenc}
@@ -34,4 +34,35 @@ The goal of {chart} is:
 -   to implement various (customisable) plot types for different R objects.
 
 ## Installation
+
+{chart} is not available from CRAN yet. You should install it from the [SciViews R-Universe](https://sciviews.r-universe.dev). The {data.io} package is useful too because it manages labels and units that {chart} uses. To install those two packages and their dependencies, run the following command in R:
+
+```r
+install.packages(c('chart', 'data.io'),
+  repos = c('https://sciviews.r-universe.dev', 'https://cloud.r-project.org'))
+```
+
+You can also install the latest development version of {chart}. Make sure you have the {remotes} R package installed:
+
+``` r
+install.packages("remotes")
+```
+
+Use `install_github()` to install the {chart} package from GitHub (source from **main** branch will be recompiled on your machine):
+
+``` r
+remotes::install_github("SciViews/chart")
+```
+
+R should install all required dependencies automatically, and then it should compile and install {chart}.
+
+## {chart} for {ggplot2} users
+
+The {chart} package uses {ggplot2} in priority. It is designed to be as close as possible to the {ggplot2} syntax with the following four exceptions:
+
+1. You should use `chart()` instead of `ggplot()`. The `chat()` function is backward compatible with `ggplot()` and you can use the same syntax, but it also uses an alternate formula-based interface. On the contrary to `ggplot()`, `chart()` automatically use labels and units for axes and legends, it uses a default style closer to a "publication-ready" format, and it is a generic function that provides different methods (and different plot types for each method).
+
+2. You can use a formula instead of an `aes()` to specify the aesthetics.
+
+
 
