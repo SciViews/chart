@@ -3,9 +3,8 @@ pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
   chart_rationate: chart_rationate.html
-  chart_tutorial: chart_tutorial.html
   chart: chart.html
-last_built: 2024-04-27T07:43Z
+last_built: 2024-04-28T11:31Z
 urls:
   reference: https://www.sciviews.org/chart/reference
   article: https://www.sciviews.org/chart/articles

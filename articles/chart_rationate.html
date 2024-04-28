@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chart, unified interface to R plots • chart</title>
+<title>Chart, Unified Interface to R Plots • chart</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -21,7 +21,7 @@
 <script src="../pkgdown.js"></script><!-- svPkgdown --><script src="../script.js"></script><!-- themify icon --><link rel="stylesheet" href="../themify-icons.css?nocache=123">
 <!--<link rel="stylesheet" href="../style.css?nocache=123">--><!-- bootstrat v4.1.1, required CSS from more recent version --><link rel="stylesheet" href="../bootstrap.more.css?nocache=123">
 <link href="../style.css?nocache=123" rel="stylesheet">
-<!-- end of addition for svPkgdown --><meta property="og:title" content="Chart, unified interface to R plots">
+<!-- end of addition for svPkgdown --><meta property="og:title" content="Chart, Unified Interface to R Plots">
 <meta property="og:description" content="chart">
 <meta property="og:image" content="https://www.sciviews.org/chart/logo.png">
 <meta name="twitter:card" content="summary">
@@ -86,10 +86,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/chart_rationate.html">Chart, unified interface to R plots</a>
-    </li>
-    <li>
-      <a href="../articles/chart_tutorial.html">Tutorial to the chart interface for R plots</a>
+      <a href="../articles/chart_rationate.html">Chart, Unified Interface to R Plots</a>
     </li>
   </ul>
 </li>
@@ -120,11 +117,11 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Chart, unified interface to R plots</h1>
+      <h1 data-toc-skip>Chart, Unified Interface to R Plots</h1>
                         <h4 data-toc-skip class="author">Philippe
 Grosjean (<a href="mailto:phgrosjean@sciviews.org" class="email">phgrosjean@sciviews.org</a>)</h4>
             
-            <h4 data-toc-skip class="date">2024-04-27</h4>
+            <h4 data-toc-skip class="date">2024-04-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/SciViews/chart/blob/HEAD/vignettes/chart_rationate.Rmd" class="external-link"><code>vignettes/chart_rationate.Rmd</code></a></small>
       <div class="hidden name"><code>chart_rationate.Rmd</code></div>
@@ -134,9 +131,113 @@ Grosjean (<a href="mailto:phgrosjean@sciviews.org" class="email">phgrosjean@sciv
     
     
 <div class="section level2">
-<h2 id="formula-versus-arguments">Formula versus arguments<a class="anchor" aria-label="anchor" href="#formula-versus-arguments"></a>
+<h2 id="formula-versus-aes">Formula versus <code>aes()</code><a class="anchor" aria-label="anchor" href="#formula-versus-aes"></a>
 </h2>
-<p>…</p>
+<p>Since the formula interface is used extensively in R to specify
+models, it is a little bit strange that corresponding plots with
+{ggplot2} must be specified in a totally different way. The {chart}
+package allows to specify the same “aesthetics” through the familiar
+formula interface. For instance, here is a simple model:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">trees</span><span class="op">)</span></span>
+<span><span class="va">trees_lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">Volume</span> <span class="op">~</span> <span class="va">Girth</span>, data <span class="op">=</span> <span class="va">trees</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">trees_lm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; lm(formula = Volume ~ Girth, data = trees)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Residuals:</span></span>
+<span><span class="co">#&gt;    Min     1Q Median     3Q    Max </span></span>
+<span><span class="co">#&gt; -8.065 -3.107  0.152  3.495  9.587 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Coefficients:</span></span>
+<span><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -36.9435     3.3651  -10.98 7.62e-12 ***</span></span>
+<span><span class="co">#&gt; Girth         5.0659     0.2474   20.48  &lt; 2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Residual standard error: 4.252 on 29 degrees of freedom</span></span>
+<span><span class="co">#&gt; Multiple R-squared:  0.9353, Adjusted R-squared:  0.9331 </span></span>
+<span><span class="co">#&gt; F-statistic: 419.4 on 1 and 29 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
+<p>Our model is specified with <code>Volume ~ Girth</code>, which must
+be translated into <code>aes(x = Girth, y = Volume)</code> in {ggplot2}.
+A common pitfall for beginners is to invert X and Y here because they
+appear in a different order in both interfaces.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">trees</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Girth</span>, y <span class="op">=</span> <span class="va">Volume</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, formula <span class="op">=</span> <span class="st">'y ~ x'</span><span class="op">)</span></span></code></pre></div>
+<p><img src="chart_rationate_files/figure-html/unnamed-chunk-2-1.png" width="95%"></p>
+<p>With {chart}, we can use the formula interface directly:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/SciViews/chart" class="external-link">chart</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/chart.html">chart</a></span><span class="op">(</span><span class="va">trees</span>, <span class="va">Volume</span> <span class="op">~</span> <span class="va">Girth</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, formula <span class="op">=</span> <span class="st">'y ~ x'</span><span class="op">)</span></span></code></pre></div>
+<p><img src="chart_rationate_files/figure-html/unnamed-chunk-3-1.png" width="95%"></p>
+<p>Of course, it is not necessarily the <strong>same</strong> formula
+that is used for the model and the chart. The formula interface has
+different meaning, depending on the function that uses it. To specify
+more aestethics in {chart} than just <code>x</code> and <code>y</code>,
+we use <code>%arg=%</code> terms. For instance, to specify the color of
+the points, we use <code>%col=%</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chart.html">chart</a></span><span class="op">(</span><span class="va">trees</span>, <span class="va">Volume</span> <span class="op">~</span> <span class="va">Girth</span> <span class="op">%col=%</span> <span class="va">Height</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="chart_rationate_files/figure-html/unnamed-chunk-4-1.png" width="95%"></p>
+</div>
+<div class="section level2">
+<h2 id="the-generic-function-chart">The generic function <code>chart()</code><a class="anchor" aria-label="anchor" href="#the-generic-function-chart"></a>
+</h2>
+<p>On the contrary to <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot()</a></code>, <code><a href="../reference/chart.html">chart()</a></code> is a
+generic. It means you do not have to specify a <strong>data
+frame</strong> for <code>data =</code>, but you can provide any object
+that has <code><a href="../reference/chart.html">chart()</a></code>, or <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot()</a></code> methods
+defined. There are not many methods defined in the {chart} package
+itself. Here is the method for <strong>function</strong> objects that
+create base R plots, converted into {chart} compatible objects:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chart.html">chart</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">Volume</span> <span class="op">~</span> <span class="va">Girth</span>, data <span class="op">=</span> <span class="va">trees</span>, pch <span class="op">=</span> <span class="fl">19</span>, col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/grid.html" class="external-link">grid</a></span><span class="op">(</span>lty <span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
+<p><img src="chart_rationate_files/figure-html/unnamed-chunk-5-1.png" width="95%"></p>
+<p>The {chart} package is designed as a basic framework to implement
+several methods for different R objects. It uses the “subsettable type”
+semantic, that is, its <code>type =</code> argument can define different
+plots for the same object class, and then, calling
+<code>chart$&lt;type&gt;(....)</code> produces the given type of plot
+for your object.</p>
+<p>TODO: make a short example here.</p>
+<p>See packages like <a href="https://www.sciviews.org/modelit/" class="external-link">{modelit}</a> or <a href="https://www.sciviews.org/exploreit/" class="external-link">{exploreit}</a> for several
+examples of such methods.</p>
+</div>
+<div class="section level2">
+<h2 id="chart-produces-near-publication-ready-plots">
+<code>chart()</code> produces near publication-ready plots<a class="anchor" aria-label="anchor" href="#chart-produces-near-publication-ready-plots"></a>
+</h2>
+<p>Another aspect of <code><a href="../reference/chart.html">chart()</a></code> is that it is tailored to
+produce plots that are as close as possible to be publication-ready (but
+they. remain fully editable with {ggplot2} functions, of course). Hence,
+the default theme, and the labels of axes or legends are set up
+accordingly. If the data frame has <strong>label</strong> and
+<strong>units</strong> attributes defined for the variables, they are
+used to construct the labels of the axes and legends. Here is an example
+with the <code>trees</code> dataset:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">trees</span> <span class="op">&lt;-</span> <span class="fu">data.io</span><span class="fu">::</span><span class="fu"><a href="https://www.sciviews.org/data.io/reference/labelise.html" class="external-link">labelise</a></span><span class="op">(</span><span class="va">trees</span>, label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    Volume <span class="op">=</span> <span class="st">"Volume of timber"</span>,</span>
+<span>    Girth  <span class="op">=</span> <span class="st">"Diameter at 1.4m"</span>,</span>
+<span>    Height <span class="op">=</span> <span class="st">"Height"</span></span>
+<span>  <span class="op">)</span>, units <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    Volume <span class="op">=</span> <span class="st">"cubic feet"</span>,</span>
+<span>    Girth  <span class="op">=</span> <span class="st">"inches"</span>,</span>
+<span>    Height <span class="op">=</span> <span class="st">"feet"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/chart.html">chart</a></span><span class="op">(</span><span class="va">trees</span>, <span class="va">Volume</span> <span class="op">~</span> <span class="va">Girth</span> <span class="op">%col=%</span> <span class="va">Height</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="chart_rationate_files/figure-html/unnamed-chunk-6-1.png" width="95%"></p>
 </div>
   </div>
 
