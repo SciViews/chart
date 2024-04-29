@@ -1,4 +1,4 @@
-#' Chart, unified interface for R plots
+#' Unified Interface (with Formula) for R Plots
 #'
 #' Unification of base plots, lattice and ggplot2, providing a single interface
 #' for all three plot engines.
@@ -9,7 +9,8 @@
 #'
 #' @docType package
 #' @name chart-package
-#'
+
+## usethis namespace: start
 #' @import grDevices
 # @importFrom grDevices hcl colorRampPalette dev.off palette
 #' @import graphics
@@ -28,7 +29,7 @@
 #' @importFrom ggplotify as.ggplot
 #' @importFrom ggpubr ggarrange
 #' @importFrom svMisc aka section
-#'
+## usethis namespace: end
 NULL
 
 # Non-exported functions --------------------------------------------------

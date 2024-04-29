@@ -1,5 +1,5 @@
 ---
-title: "Chart - Unified Interface (with Formula) for R Plots <a href='https://www.sciviews.org/chart'><img src='man/figures/logo.png' align='right' height='139'/></a>"
+title: "Unified Interface (with Formula) for R Plots <a href='https://www.sciviews.org/chart'><img src='man/figures/logo.png' align='right' height='139'/></a>"
 output: github_document
 ---
 
@@ -8,7 +8,7 @@ output: github_document
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml) [![Coverage status](https://img.shields.io/codecov/c/github/SciViews/chart/master.svg)](https://codecov.io/github/SciViews/chart?branch=main) [![CRAN status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart) [![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-
+[![Codecov test coverage](https://codecov.io/gh/SciViews/chart/branch/main/graph/badge.svg)](https://app.codecov.io/gh/SciViews/chart?branch=main)
 <!-- badges: end -->
 
 ```{r setup, include=FALSE}

@@ -1,12 +1,13 @@
 ---
-title: "Chart, Unified Interface to R Plots"
+title: "Why Chart?"
 author: "Philippe Grosjean (phgrosjean@sciviews.org)"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
-    fig_caption: yes
+    toc: true
+    toc_depth: 3
 vignette: >
-  %\VignetteIndexEntry{Chart, unified interface to R plots}
+  %\VignetteIndexEntry{Why Chart?}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   \usepackage[utf8]{inputenc}
@@ -17,6 +18,8 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>",
   fig.width = 6, fig.height = 4.5, out.width = "95%")
 library(chart)
 ```
+
+In this vignette, we explain some of the design choices behind the {chart} package, and why it can be useful for R users.
 
 ## Formula versus `aes()`
 

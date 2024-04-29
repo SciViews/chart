@@ -2,6 +2,8 @@
 
 -   Documentation (vignettes et README file) are completed.
 
+-   License change to MIT for better reusability.
+
 # chart 1.5.1
 
 -   `Sgg()` now prefers using `Sgg$ggtitle()`, but `Sgg$title()` is accepted as well.
