@@ -34,28 +34,6 @@ The goal of {chart} is:
 -   to expose an formula-base interface as an alternative for {ggplot2} users;
 -   to implement various (customisable) plot types for different R objects.
 
-## Installation
-
-{chart} is not available from CRAN yet. You should install it from the [SciViews R-Universe](https://sciviews.r-universe.dev). The {data.io} package is useful too because it manages labels and units that {chart} uses. To install those two packages and their dependencies, run the following command in R:
-
-```r
-install.packages(c('chart', 'data.io'),
-  repos = c('https://sciviews.r-universe.dev', 'https://cloud.r-project.org'))
-```
-
-You can also install the latest development version of {chart}. Make sure you have the {remotes} R package installed:
-
-``` r
-install.packages("remotes")
-```
-
-Use `install_github()` to install the {chart} package from GitHub (source from **main** branch will be recompiled on your machine):
-
-``` r
-remotes::install_github("SciViews/chart")
-```
-
-R should install all required dependencies automatically, and then it should compile and install {chart}.
 
 ## {chart} for {ggplot2} users
 
