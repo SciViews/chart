@@ -156,29 +156,6 @@ objects.</li>
 </ul>
 </div>
 <div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h2>
-<p>{chart} is not available from CRAN yet. You should install it from
-the <a href="https://sciviews.r-universe.dev" class="external-link">SciViews R-Universe</a>.
-The {data.io} package is useful too because it manages labels and units
-that {chart} uses. To install those two packages and their dependencies,
-run the following command in R:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'chart'</span>, <span class="st">'data.io'</span><span class="op">)</span>,</span>
-<span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'https://sciviews.r-universe.dev'</span>, <span class="st">'https://cloud.r-project.org'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>You can also install the latest development version of {chart}. Make
-sure you have the {remotes} R package installed:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span></code></pre></div>
-<p>Use <code>install_github()</code> to install the {chart} package from
-GitHub (source from <strong>main</strong> branch will be recompiled on
-your machine):</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"SciViews/chart"</span><span class="op">)</span></span></code></pre></div>
-<p>R should install all required dependencies automatically, and then it
-should compile and install {chart}.</p>
-</div>
-<div class="section level2">
 <h2 id="chart-for-ggplot2-users">{chart} for {ggplot2} users<a class="anchor" aria-label="anchor" href="#chart-for-ggplot2-users"></a>
 </h2>
 <p>The {chart} package uses {ggplot2} in priority. It is designed to be
