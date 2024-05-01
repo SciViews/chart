@@ -25,13 +25,13 @@ Sgg(ggplot, ...)
 }
 \value{
 The \code{Sgg()} function just returns an error message. When subsetted
-with the name of a {ggplot2} function (e.g., \code{Sgg$geom_point()}), it
+with the name of a \{ggplot2\} function (e.g., \code{Sgg$geom_point()}), it
 returns a modified version of that function in such a way that it can be
 used with a pipe operator.
 }
 \description{
 The set \code{Sgg} should be used like this: \code{Sgg$geom_point()}.
-It transforms on the fly an original {ggplot2} function supposed to be used
+It transforms on the fly an original \{ggplot2\} function supposed to be used
 with the \code{+} operator (like \code{p + geom_point()}) into a pipeable version
 (like \code{p \%>\% Sgg$geom_point()}).
 }
