@@ -34,11 +34,12 @@
   gtag('config', 'UA-462421-8');
 </script>-->
 </head>
-<body data-spy="scroll" data-target="#toc">
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <div class="container template-home">
-      <header><!-- preloader start --><div class="preloader">
+    <!-- preloader start -->
+<div class="preloader">
   <img src="preloader.gif" alt="loading...">
 </div>
 <!-- preloader end -->
@@ -72,30 +73,24 @@
       </form>
       <!-- end svPkgdown global site search with Google -->
       <ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="articles/chart.html">Get started</a>
+<li class="nav-item">
+  <a class="nav-link" href="articles/chart.html">Get started</a>
 </li>
-<li>
-  <a href="reference/index.html">Reference</a>
+<li class="nav-item">
+  <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="articles/chart_rationate.html">Why Chart?</a>
-    </li>
-  </ul>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="articles/chart_rationate.html">Why Chart?</a>
+  </div>
 </li>
-<li>
-  <a href="news/index.html">Changelog</a>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">Changelog</a>
 </li>
-        <li>
-  <a href="https://github.com/SciViews/chart/" class="external-link">
-    <span class="fab fa-github fa-lg"></span>
+        <li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/SciViews/chart/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -112,17 +107,14 @@
 </div>
 <!--/.navbar -->
 
-      
-
-      </header><div class="row">
-  <div class="contents col-md-9">
-
-<p>Chart - Unified Interface (with Formula) for R Plots <a href="https://www.sciviews.org/chart"><img src="reference/figures/logo.png" align="right" height="139"></a> ================</p>
+    <div class="container template-home">
+<div class="row">
+  <main id="main" class="col-md-9"><p>Unified Interface (with Formula) for R Plots <a href="https://www.sciviews.org/chart"><img src="reference/figures/logo.png" align="right" height="139"></a> ================</p>
 <!-- Do not edit the README.md file directly. It is generated from README.Rmd. -->
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>{chart} provides an alternate formula interface to {ggplot2}, and it also homogenize plot outputs from base R plots, {lattice} and {ggplot}. If labels and/or units attributes are defined for variables in the data, they are used automatically to construct the label (with units) of the axes. See <a href="https://www.sciviews.org/chart/" class="uri">https://www.sciviews.org/chart/</a> for more details.</p>
+<p>The {chart} package provides an alternate formula interface to {ggplot2}, and it also homogenize plot outputs from base R plots, {lattice} and {ggplot}. If labels and/or units attributes are defined for variables in the data, they are used automatically to construct the label (with units) of the axes. See <a href="https://www.sciviews.org/chart/" class="uri">https://www.sciviews.org/chart/</a> for more details.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -167,13 +159,10 @@
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
 </h2>
-<p>Please note that the {chart} package is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the {chart} package is released with a <a href="https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="links">
+  </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/SciViews/chart/" class="external-link">Browse source code</a></li>
@@ -213,11 +202,11 @@
 
 
 
-  </div>
+  </aside>
 </div>
 
 
-      <footer><!-- footer --><!--<footer class="bg-secondary">--><div class="bg-secondary full-width">
+    <footer><!-- footer --><!--<footer class="bg-secondary">--><div class="bg-secondary full-width">
     <div class="py-100 border-bottom" style="border-color: #454547 !important">
         <div class="container">
             <div class="row">
@@ -338,11 +327,10 @@
 <!--</footer>-->
 <!-- /footer -->
 
-      </footer>
+    </footer>
 </div>
 
   
-
 
   
 

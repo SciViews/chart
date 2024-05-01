@@ -6,11 +6,12 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-462421-8');
-</script>--></head><body data-spy="scroll" data-target="#toc">
+</script>--></head><body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <div class="container template-reference-topic">
-      <header><!-- preloader start --><div class="preloader">
+    <!-- preloader start -->
+<div class="preloader">
   <img src="../preloader.gif" alt="loading..."></div>
 <!-- preloader end -->
 
@@ -41,28 +42,24 @@
           <input type="text" class="form-control-global search-form-input" name="q" id="q" placeholder="Search..." required><input type="hidden" name="sitesearch" value="https://www.sciviews.org"></div>
       </form>
       <!-- end svPkgdown global site search with Google -->
-      <ul class="nav navbar-nav navbar-right"><li>
-  <a href="../articles/chart.html">Get started</a>
+      <ul class="nav navbar-nav navbar-right"><li class="nav-item">
+  <a class="nav-link" href="../articles/chart.html">Get started</a>
 </li>
-<li>
-  <a href="../reference/index.html">Reference</a>
+<li class="active nav-item">
+  <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/chart_rationate.html">Why Chart?</a>
-    </li>
-  </ul></li>
-<li>
-  <a href="../news/index.html">Changelog</a>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/chart_rationate.html">Why Chart?</a>
+  </div>
 </li>
-        <li>
-  <a href="https://github.com/SciViews/chart/" class="external-link">
-    <span class="fab fa-github fa-lg"></span>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
+        <li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/SciViews/chart/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -75,21 +72,20 @@
   </div>
 </div><!--/.navbar -->
 
-      
-
-      </header><div class="row">
-  <div class="col-md-9 contents">
-    <div class="page-header">
-    <h1>Create charts</h1>
-    <small class="dont-index">Source: <a href="https://github.com/SciViews/chart/blob/HEAD/R/chart.R" class="external-link"><code>R/chart.R</code></a></small>
-    <div class="hidden name"><code>chart.Rd</code></div>
+    <div class="container template-reference-topic">
+<div class="row">
+  <main id="main" class="col-md-9"><div class="page-header">
+      <img src="../logo.png" class="logo" alt=""><h1>Create charts</h1>
+      <small class="dont-index">Source: <a href="https://github.com/SciViews/chart/blob/HEAD/R/chart.R" class="external-link"><code>R/chart.R</code></a></small>
+      <div class="d-none name"><code>chart.Rd</code></div>
     </div>
 
-    <div class="ref-description">
+    <div class="ref-description section level2">
     <p><code>chart()</code> provides a unified interface for base plots, lattice and ggplot2.</p>
     </div>
 
-    <div id="ref-usage">
+    <div class="section level2">
+    <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre><code>chart(data, ..., type = NULL, env = parent.frame())
 
 # S3 method for default
@@ -111,8 +107,8 @@ chart(data, ..., type = NULL, auto.labs = TRUE, env = parent.frame())
 $(x, name)</code></pre></div>
     </div>
 
-    <div id="arguments">
-    <h2>Arguments</h2>
+    <div class="section level2">
+    <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>data</dt>
 <dd><p>The dataset (a <code>data.frame</code> or <code>tibble</code>, usually).</p></dd>
 
@@ -153,17 +149,17 @@ $(x, name)</code></pre></div>
 <dd><p>The value to use for the <code>type=</code> argument.</p></dd>
 
 </dl></div>
-    <div id="details">
-    <h2>Details</h2>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>....</p>
     </div>
-    <div id="see-also">
-    <h2>See also</h2>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="f_aes.html">f_aes()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot()</a></code></p></div>
     </div>
 
-    <div id="ref-examples">
-    <h2>Examples</h2>
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">urchin</span> <span class="op">&lt;-</span> <span class="fu">data.io</span><span class="fu">::</span><span class="fu"><a href="https://www.sciviews.org/data.io/reference/read.html" class="external-link">read</a></span><span class="op">(</span><span class="st">"urchin_bio"</span>, package <span class="op">=</span> <span class="st">"data.io"</span>, lang <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># base R graphics</span></span></span>
@@ -193,14 +189,11 @@ $(x, name)</code></pre></div>
 <span class="r-in"><span><span class="co">#chart$geom_histogram(urchin,  ~ height)</span></span></span>
 </code></pre></div>
     </div>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
-    </nav></div>
-</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
-      <footer><!-- footer --><!--<footer class="bg-secondary">--><div class="bg-secondary full-width">
+    <footer><!-- footer --><!--<footer class="bg-secondary">--><div class="bg-secondary full-width">
     <div class="py-100 border-bottom" style="border-color: #454547 !important">
         <div class="container">
             <div class="row">
@@ -313,10 +306,9 @@ $(x, name)</code></pre></div>
 <!--</footer>-->
 <!-- /footer -->
 
-      </footer></div>
+    </footer></div>
 
   
-
 
   
 
