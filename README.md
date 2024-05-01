@@ -1,4 +1,4 @@
-Chart - Unified Interface (with Formula) for R Plots
+Unified Interface (with Formula) for R Plots
 <a href='https://www.sciviews.org/chart'><img src='man/figures/logo.png' align='right' height='139'/></a>
 ================
 
@@ -6,21 +6,25 @@ Chart - Unified Interface (with Formula) for R Plots
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml)
-[![Coverage
-status](https://img.shields.io/codecov/c/github/SciViews/chart/master.svg)](https://codecov.io/github/SciViews/chart?branch=main)
+[![Codecov test
+coverage](https://codecov.io/gh/SciViews/chart/branch/main/graph/badge.svg)](https://app.codecov.io/gh/SciViews/chart?branch=main)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart)
-[![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![r-universe
+status](https://sciviews.r-universe.dev/badges/chart)](https://sciviews.r-universe.dev/chart)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 
 <!-- badges: end -->
 
-{chart} provides an alternate formula interface to {ggplot2}, and it
-also homogenize plot outputs from base R plots, {lattice} and {ggplot}.
-If labels and/or units attributes are defined for variables in the data,
-they are used automatically to construct the label (with units) of the
-axes. See <https://www.sciviews.org/chart/> for more details.
+The {chart} package provides an alternate formula interface to
+{ggplot2}, and it also homogenize plot outputs from base R plots,
+{lattice} and {ggplot}. If labels and/or units attributes are defined
+for variables in the data, they are used automatically to construct the
+label (with units) of the axes. See <https://www.sciviews.org/chart/>
+for more details.
 
 ## Installation
 
@@ -108,5 +112,5 @@ vignette("chart") # Not installed with install_github()
 
 Please note that the {chart} package is released with a [Contributor
 Code of
-Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.

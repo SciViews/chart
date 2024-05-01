@@ -1,19 +1,19 @@
 ---
 title: "Why Chart?"
-author: "Philippe Grosjean (phgrosjean@sciviews.org)"
+author: "Philippe Grosjean"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
     toc: true
     toc_depth: 3
+    fig_caption: yes
 vignette: >
   %\VignetteIndexEntry{Why Chart?}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-  \usepackage[utf8]{inputenc}
 ---
 
-```{r setup, include = FALSE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>",
   fig.width = 6, fig.height = 4.5, out.width = "95%")
 library(chart)
@@ -49,7 +49,7 @@ chart(trees, Volume ~ Girth) +
   geom_smooth(method = "lm", formula = 'y ~ x')
 ```
 
-Of course, it is not necessarily the **same** formula that is used for the model and the chart. The formula interface has different meaning, depending on the function that uses it. To specify more aestethics in {chart} than just `x` and `y`, we use `%arg=%` terms. For instance, to specify the color of the points, we use `%col=%`:
+Of course, it is not necessarily the **same** formula that is used for the model and the chart. The formula interface has different meaning, depending on the function that uses it. To specify more aesthetics in {chart} than just `x` and `y`, we use `%arg=%` terms. For instance, to specify the color of the points, we use `%col=%`:
 
 ```{r}
 chart(trees, Volume ~ Girth %col=% Height) +

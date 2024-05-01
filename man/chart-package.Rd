@@ -3,7 +3,7 @@
 \docType{package}
 \name{chart-package}
 \alias{chart-package}
-\title{Chart, unified interface for R plots}
+\title{Unified Interface (with Formula) for R Plots}
 \description{
 Unification of base plots, lattice and ggplot2, providing a single interface
 for all three plot engines.
@@ -11,7 +11,9 @@ for all three plot engines.
 \section{Important functions}{
 
 \itemize{
-\item \code{\link[=chart]{chart()}} constructs a \code{Chart} object.
+\item \code{\link[=chart]{chart()}} constructs a \strong{Chart} object.
+\item \code{\link[=combine_charts]{combine_charts()}} combines multiple \strong{Chart} objects into a single plot.
+\item \code{\link[=f_aes]{f_aes()}} creates a formula for aesthetics mapping (use it instead of \code{\link[ggplot2:aes]{ggplot2::aes()}}.
 }
 }
 

@@ -1,23 +1,20 @@
 ---
-title: "Chart - Unified Interface (with Formula) for R Plots"
-author: "Philippe Grosjean (phgrosjean@sciviews.org)"
+title: "Unified Interface (with Formula) for R Plots"
+author: "Philippe Grosjean"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
     toc: true
     toc_depth: 3
+    fig_caption: yes
 vignette: >
-  %\VignetteIndexEntry{Chart - Unified Interface (with Formula) for R Plots}
+  %\VignetteIndexEntry{Unified Interface (with Formula) for R Plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-  \usepackage[utf8]{inputenc}
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 library(chart)
 ```
 
@@ -28,11 +25,11 @@ In R, there are several plotting engines, but the three major ones are the base 
 The goal of {chart} is:
 
 -   to provide a unified interface to the three major plotting engines in R;
--   to make all three types of plots intercompatible in a composite figure;
+-   to make all three types of plots compatible in a composite figure;
 -   to propose a default style for the plots that is consistent across the three engines and close enough to a publication-ready style;
 -   to use automatically labels and units for axes, when possible;
 -   to expose an formula-base interface as an alternative for {ggplot2} users;
--   to implement various (customisable) plot types for different R objects.
+-   to implement various (customizable) plot types for different R objects.
 
 
 ## {chart} for {ggplot2} users

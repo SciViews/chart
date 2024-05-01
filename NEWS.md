@@ -1,6 +1,6 @@
 # chart 1.5.2
 
--   Documentation (vignettes et README file) are completed.
+-   Documentation (vignettes and README file) are completed.
 
 -   License change to MIT for better reusability.
 

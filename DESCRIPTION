@@ -13,27 +13,27 @@ Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 Depends:
     R (>= 4.2.0),
     ggplot2 (>= 3.0),
-    lattice
+    lattice (>= 0.21.0)
 Imports:
-    cowplot,
-    data.io,
-    ggplotify,
-    ggpubr,
-    graphics,
-    grDevices,
-    latticeExtra,
-    pryr,
-    rlang,
-    scales,
-    stats,
-    utils,
-    viridis,
-    svMisc
+    cowplot (>= 1.1.1),
+    data.io (>= 1.5.0),
+    ggplotify (>= 0.1.0),
+    ggpubr (>= 0.6.0),
+    graphics (>= 4.2.0),
+    grDevices (>= 4.2.0),
+    latticeExtra (>= 0.6.30),
+    pryr (>= 0.1.6),
+    rlang (>= 1.1.1),
+    scales (>= 1.2.1),
+    stats (>= 4.2.0),
+    svMisc (>= 1.4.0),
+    utils (>= 4.2.0),
+    viridis (>= 0.6.2)
 Suggests:
-    MASS,
-    knitr,
-    rmarkdown,
-    spelling,
+    MASS (>= 7.3.58.3),
+    knitr (>= 1.42),
+    rmarkdown (>= 2.21),
+    spelling (>= 2.2.1),
     testthat (>= 3.0.0)
 Remotes:
     SciViews/data.io,
@@ -41,10 +41,10 @@ Remotes:
 License: MIT + file LICENSE
 URL: https://github.com/SciViews/chart, https://www.sciviews.org/chart/
 BugReports: https://github.com/SciViews/chart/issues
-ByteCompile: yes
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Config/testthat/edition: 3
 VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US
+ByteCompile: yes
+Config/testthat/edition: 3

@@ -5,7 +5,11 @@
 #'
 #' @section Important functions:
 #'
-#'- [chart()] constructs a `Chart` object.
+#'- [chart()] constructs a **Chart** object.
+#'
+#'- [combine_charts()] combines multiple **Chart** objects into a single plot.
+#'
+#'- [f_aes()] creates a formula for aesthetics mapping (use it instead of [ggplot2::aes()].
 #'
 #' @docType package
 #' @name chart-package
