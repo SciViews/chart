@@ -7,7 +7,12 @@ output: github_document
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/SciViews/chart/branch/main/graph/badge.svg)](https://app.codecov.io/gh/SciViews/chart?branch=main) [![CRAN status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart) [![r-universe status](https://sciviews.r-universe.dev/badges/chart)](https://sciviews.r-universe.dev/chart) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![R-CMD-check](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/SciViews/chart/branch/main/graph/badge.svg)](https://app.codecov.io/gh/SciViews/chart?branch=main)
+[![CRAN status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart)
+[![r-universe status](https://sciviews.r-universe.dev/badges/chart)](https://sciviews.r-universe.dev/chart)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 
 <!-- badges: end -->
 
