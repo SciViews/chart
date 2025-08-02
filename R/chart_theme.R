@@ -41,16 +41,16 @@ theme_sciviews <- function(font_size = 12, font_family = "", line_size = .5) {
     theme(
       legend.box.background = element_rect(fill = "white", colour = NA),
       panel.background = element_rect(fill = "white"),
-      panel.border = element_rect(colour = "black", size = 0.5,
+      panel.border = element_rect(colour = "black", linewidth = 0.5,
         linetype = "solid"),
-      panel.grid.major  = element_line(colour = "grey90", size = 0.2),
-      panel.grid.minor  = element_line(colour = "grey98", size = 0.5),
+      panel.grid.major  = element_line(colour = "grey90", linewidth = 0.2),
+      panel.grid.minor  = element_line(colour = "grey98", linewidth = 0.5),
       plot.background   = element_rect(fill = "transparent", colour = NA),
       strip.background  = element_rect(fill = "grey80", colour = "black",
-        size = 0.5, linetype = "solid"),
+        linewidth = 0.5, linetype = "solid"),
       strip.text.x      = element_text(margin =
           margin(0.15 ,0.1, 0.15 ,0.1, "cm")),
-      axis.line = element_line(colour = "black", size = 0.5),
+      axis.line = element_line(colour = "black", linewidth = 0.5),
       complete = TRUE
     )
 }

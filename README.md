@@ -1,17 +1,20 @@
-Unified Interface (with Formula) for R Plots
-<a href='https://www.sciviews.org/chart'><img src='man/figures/logo.png' align='right' height='139'/></a>
-================
 
-<!-- Do not edit the README.md file directly. It is generated from README.Rmd. -->
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# ‘SciViews::R’ - Unified Interface (with Formula) for R Plots <a href="https://www.sciviews.org/chart"><img src="man/figures/logo.png" align="right" height="138" /></a>
+
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SciViews/chart/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/SciViews/chart/branch/main/graph/badge.svg)](https://app.codecov.io/gh/SciViews/chart?branch=main)
-[![CRAN status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart)
-[![r-universe status](https://sciviews.r-universe.dev/badges/chart)](https://sciviews.r-universe.dev/chart)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-
+[![codecov](https://codecov.io/gh/SciViews/chart/graph/badge.svg?token=miNdL43gLm)](https://codecov.io/gh/SciViews/chart)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/chart)](https://cran.r-project.org/package=chart)
+[![r-universe
+status](https://sciviews.r-universe.dev/badges/chart)](https://sciviews.r-universe.dev/chart)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 The {chart} package provides an alternate formula interface to
@@ -74,7 +77,7 @@ chart(airquality, Ozone ~ Solar.R %col=% Temp) +
   geom_point(na.rm = TRUE)
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 You will notice that the syntax is relatively close to {ggplot2}, except
 that `ggplot()` is here replaced by `chart()` and

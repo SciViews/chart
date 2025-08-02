@@ -1,5 +1,5 @@
 ---
-title: "Unified Interface (with Formula) for R Plots"
+title: "'SciViews::R' - Unified Interface (with Formula) for R Plots"
 author: "Philippe Grosjean"
 date: "`r Sys.Date()`"
 output:
@@ -8,7 +8,7 @@ output:
     toc_depth: 3
     fig_caption: yes
 vignette: >
-  %\VignetteIndexEntry{Unified Interface (with Formula) for R Plots}
+  %\VignetteIndexEntry{'SciViews::R' - Unified Interface (with Formula) for R Plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

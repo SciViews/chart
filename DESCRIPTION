@@ -1,14 +1,15 @@
 Package: chart
 Type: Package
 Version: 1.5.2
-Title: Unified Interface (with Formula) for R Plots
+Title: 'SciViews::R' - Unified Interface (with Formula) for R Plots
 Description: Chart generalizes plot generation in R, being with base R plot
   function, lattice or ggplot2. A formula interface is available for both
   ggplot2 and lattice. The function 'chart()' automatically uses labels and
   units if they are defined in the data.
-Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
-  email = "phgrosjean@sciviews.org",
-  comment = c(ORCID = "0000-0002-2694-9471")))
+Authors@R: c(
+  person("Philippe", "Grosjean", role = c("aut", "cre"),
+    email = "phgrosjean@sciviews.org",
+    comment = c(ORCID = "0000-0002-2694-9471")))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 Depends:
     R (>= 4.2.0),
@@ -31,6 +32,7 @@ Imports:
     viridis (>= 0.6.2)
 Suggests:
     MASS (>= 7.3.58.3),
+    covr (>= 3.5.0),
     knitr (>= 1.42),
     rmarkdown (>= 2.21),
     spelling (>= 2.2.1),
@@ -39,10 +41,10 @@ Remotes:
     SciViews/data.io,
     SciViews/svMisc
 License: MIT + file LICENSE
-URL: https://github.com/SciViews/chart, https://www.sciviews.org/chart/
+URL: https://github.com/SciViews/chart, https://www.sciviews.org/chart/, https://sciviews.r-universe.dev/chart
 BugReports: https://github.com/SciViews/chart/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US

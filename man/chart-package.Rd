@@ -3,7 +3,7 @@
 \docType{package}
 \name{chart-package}
 \alias{chart-package}
-\title{Unified Interface (with Formula) for R Plots}
+\title{'SciViews::R' - Unified Interface (with Formula) for R Plots}
 \description{
 Unification of base plots, lattice and ggplot2, providing a single interface
 for all three plot engines.
@@ -17,3 +17,17 @@ for all three plot engines.
 }
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/SciViews/chart}
+  \item \url{https://www.sciviews.org/chart/}
+  \item \url{https://sciviews.r-universe.dev/chart}
+  \item Report bugs at \url{https://github.com/SciViews/chart/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Philippe Grosjean \email{phgrosjean@sciviews.org} (\href{https://orcid.org/0000-0002-2694-9471}{ORCID})
+
+}
