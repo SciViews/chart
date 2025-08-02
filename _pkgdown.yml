@@ -7,7 +7,6 @@ development:
 
 template:
   package: svPkgdown
-  bootstrap: 5
   params:
     bootswatch: spacelab
     mathjax: true
