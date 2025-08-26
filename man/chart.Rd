@@ -4,7 +4,6 @@
 \alias{chart}
 \alias{chart.default}
 \alias{chart.function}
-\alias{$.subsettable_type}
 \title{Create charts}
 \usage{
 chart(data, ..., type = NULL, env = parent.frame())
@@ -21,8 +20,6 @@ chart(data, ..., type = NULL, env = parent.frame())
 )
 
 \method{chart}{`function`}(data, ..., type = NULL, auto.labs = TRUE, env = parent.frame())
-
-\method{$}{subsettable_type}(x, name)
 }
 \arguments{
 \item{data}{The dataset (a \code{data.frame} or \code{tibble}, usually).}
@@ -40,10 +37,6 @@ chart(data, ..., type = NULL, env = parent.frame())
 \item{mapping}{An \code{aes()} object, as for \code{\link[=ggplot]{ggplot()}}.}
 
 \item{auto.labs}{Are labels (and units) automatically used for axes?}
-
-\item{x}{A \code{subsettable_type} function.}
-
-\item{name}{The value to use for the \verb{type=} argument.}
 }
 \description{
 \code{chart()} provides a unified interface for base plots, lattice and ggplot2.

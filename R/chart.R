@@ -260,14 +260,6 @@ env = parent.frame()) {
   res
 }
 
-#' @export
-#' @rdname chart
-#' @param x A `subsettable_type` function.
-#' @param name The value to use for the `type=` argument.
-#' @method $ subsettable_type
-`$.subsettable_type` <- function(x, name)
-  function(...) x(type = name, ...)
-
 #' Combine charts
 #'
 #' Assemble multiple charts on the same page. Wrapper around [ggarrange()] with

@@ -1,3 +1,7 @@
+# chart 1.5.3
+
+-   Now using `$.subsettable_type()` method from {svMisc}.
+
 # chart 1.5.2
 
 -   Documentation (vignettes and README file) are completed.

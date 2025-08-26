@@ -1,6 +1,6 @@
 Package: chart
 Type: Package
-Version: 1.5.2
+Version: 1.5.3
 Title: 'SciViews::R' - Unified Interface (with Formula) for R Plots
 Description: Chart generalizes plot generation in R, being with base R plot
   function, lattice or ggplot2. A formula interface is available for both
