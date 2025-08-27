@@ -31,10 +31,10 @@ The {chart} package  provides an alternate formula interface to {ggplot2}, and i
 
 ## Installation
 
-{chart} is not available from CRAN yet. You should install it from the [SciViews R-Universe](https://sciviews.r-universe.dev). The {data.io} package is useful too because it manages labels and units that {chart} uses. To install those two packages and their dependencies, run the following command in R:
+{chart} is not available from CRAN yet. You should install it from the [SciViews R-Universe](https://sciviews.r-universe.dev). The {svBase} package is useful too because it manages labels and units that {chart} uses. To install those two packages and their dependencies, run the following command in R:
 
 ```{r, eval=FALSE}
-install.packages(c('chart', 'data.io'),
+install.packages(c('chart', 'svBase'),
   repos = c('https://sciviews.r-universe.dev', 'https://cloud.r-project.org'))
 ```
 
@@ -58,7 +58,7 @@ Starting from the `airquality` from {datasets}, we can annotate our dataset with
 
 ```{r}
 data(airquality, package = "datasets")
-airquality <- data.io::labelise(airquality, label = list(
+airquality <- svBase::labelise(airquality, label = list(
   Ozone = "Ozone", Temp = "Temperature", Solar.R = "Solar radiation",
   Wind = "Wind speed"
 ), units = list(

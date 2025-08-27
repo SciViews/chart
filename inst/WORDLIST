@@ -5,6 +5,7 @@ devtools
 exploreit
 ggplot
 GitHub
+io
 modelit
 ORCID
 OSX
@@ -13,6 +14,7 @@ README
 reusability
 SciViews
 subsettable
+svBase
 svMisc
 thetics
 viridis

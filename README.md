@@ -27,13 +27,13 @@ for more details.
 ## Installation
 
 {chart} is not available from CRAN yet. You should install it from the
-[SciViews R-Universe](https://sciviews.r-universe.dev). The {data.io}
+[SciViews R-Universe](https://sciviews.r-universe.dev). The {svBase}
 package is useful too because it manages labels and units that {chart}
 uses. To install those two packages and their dependencies, run the
 following command in R:
 
 ``` r
-install.packages(c('chart', 'data.io'),
+install.packages(c('chart', 'svBase'),
   repos = c('https://sciviews.r-universe.dev', 'https://cloud.r-project.org'))
 ```
 
@@ -61,7 +61,7 @@ dataset with labels and units for its variable like this:
 
 ``` r
 data(airquality, package = "datasets")
-airquality <- data.io::labelise(airquality, label = list(
+airquality <- svBase::labelise(airquality, label = list(
   Ozone = "Ozone", Temp = "Temperature", Solar.R = "Solar radiation",
   Wind = "Wind speed"
 ), units = list(

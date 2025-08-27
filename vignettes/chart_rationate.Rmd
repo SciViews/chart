@@ -78,7 +78,7 @@ See packages like [{modelit}](https://www.sciviews.org/modelit/) or [{exploreit}
 Another aspect of `chart()` is that it is tailored to produce plots that are as close as possible to be publication-ready (but they. remain fully editable with {ggplot2} functions, of course). Hence, the default theme, and the labels of axes or legends are set up accordingly. If the data frame has **label** and **units** attributes defined for the variables, they are used to construct the labels of the axes and legends. Here is an example with the `trees` dataset:
 
 ```{r} 
-trees <- data.io::labelise(trees, label = list(
+trees <- svBase::labelise(trees, label = list(
     Volume = "Volume of timber",
     Girth  = "Diameter at 1.4m",
     Height = "Height"

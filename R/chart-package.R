@@ -28,10 +28,9 @@
 #' @importFrom stats as.formula asOneSidedFormula
 #' @importFrom utils .DollarNames apropos modifyList
 #' @importFrom pryr modify_lang
-#' @importFrom data.io label
 #' @importFrom ggplotify as.ggplot
 #' @importFrom ggpubr ggarrange
-#' @importFrom svMisc aka section
+#' @importFrom svBase aka section label
 ## usethis namespace: end
 "_PACKAGE"
 

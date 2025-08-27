@@ -209,7 +209,7 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
     names(labels) <- dnames
     if (!is.null(dnames)) {
       for (dname in dnames)
-        labels[[dname]] <- data.io::label(data[[dname]], units = TRUE)
+        labels[[dname]] <- svBase::label(data[[dname]], units = TRUE)
       labels <- labels[labels != ""]
       if (length(labels)) {
         dnames <- names(labels)

@@ -1,6 +1,10 @@
+# chart 1.5.4
+
+-   Uses `aka()`, `section()` and `label()` from {svBase} (>= 1.7.0). No more dependencies to {data.io} and {svMisc}.
+
 # chart 1.5.3
 
--   Now using `$.subsettable_type()` method from {svMisc}.
+-   Now using `$.subsettable_type()` method from {svBase}.
 
 # chart 1.5.2
 

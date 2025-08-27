@@ -31,7 +31,7 @@ chart(function() {
 })
 
 ## -----------------------------------------------------------------------------
-trees <- data.io::labelise(trees, label = list(
+trees <- svBase::labelise(trees, label = list(
     Volume = "Volume of timber",
     Girth  = "Diameter at 1.4m",
     Height = "Height"

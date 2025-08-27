@@ -1,6 +1,6 @@
 Package: chart
 Type: Package
-Version: 1.5.3
+Version: 1.5.4
 Title: 'SciViews::R' - Unified Interface (with Formula) for R Plots
 Description: Chart generalizes plot generation in R, being with base R plot
   function, lattice or ggplot2. A formula interface is available for both
@@ -17,7 +17,6 @@ Depends:
     lattice (>= 0.21.0)
 Imports:
     cowplot (>= 1.1.1),
-    data.io (>= 1.5.0),
     ggplotify (>= 0.1.0),
     ggpubr (>= 0.6.0),
     graphics (>= 4.2.0),
@@ -27,10 +26,11 @@ Imports:
     rlang (>= 1.1.1),
     scales (>= 1.2.1),
     stats (>= 4.2.0),
-    svMisc (>= 1.4.0),
+    svBase (>= 1.7.0),
     utils (>= 4.2.0),
     viridis (>= 0.6.2)
 Suggests:
+    data.io (>= 1.7.0),
     MASS (>= 7.3.58.3),
     covr (>= 3.5.0),
     knitr (>= 1.42),
@@ -39,7 +39,7 @@ Suggests:
     testthat (>= 3.0.0)
 Remotes:
     SciViews/data.io,
-    SciViews/svMisc
+    SciViews/svBase
 License: MIT + file LICENSE
 URL: https://github.com/SciViews/chart, https://www.sciviews.org/chart/, https://sciviews.r-universe.dev/chart
 BugReports: https://github.com/SciViews/chart/issues
