@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ‘SciViews::R’ - Unified Interface (with Formula) for R Plots <a href="https://www.sciviews.org/chart"><img src="man/figures/logo.png" align="right" height="138" /></a>
+# ‘SciViews::R’ - Unified Interface for R Plots <a href="https://www.sciviews.org/chart"><img src="man/figures/logo.png" align="right" height="138" /></a>
 
 <!-- badges: start -->
 
