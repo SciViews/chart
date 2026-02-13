@@ -1,6 +1,6 @@
 Package: chart
 Type: Package
-Version: 1.5.4
+Version: 1.5.5
 Title: 'SciViews::R' - Unified Interface (with Formula) for R Plots
 Description: Chart generalizes plot generation in R, being with base R plot
   function, lattice or ggplot2. A formula interface is available for both
@@ -22,7 +22,6 @@ Imports:
     graphics (>= 4.2.0),
     grDevices (>= 4.2.0),
     latticeExtra (>= 0.6.30),
-    pryr (>= 0.1.6),
     rlang (>= 1.1.1),
     scales (>= 1.2.1),
     stats (>= 4.2.0),

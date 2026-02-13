@@ -27,7 +27,6 @@
 #' @importFrom rlang abort warn env_label f_env f_lhs f_rhs is_true is_quosure
 #' @importFrom stats as.formula asOneSidedFormula
 #' @importFrom utils .DollarNames apropos modifyList
-#' @importFrom pryr modify_lang
 #' @importFrom ggplotify as.ggplot
 #' @importFrom ggpubr ggarrange
 #' @importFrom svBase aka section label

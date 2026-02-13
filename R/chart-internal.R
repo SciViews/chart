@@ -81,3 +81,29 @@ as_formula <- as.formula
 .base_to_ggplot <- c(col = "colour", color = "colour", pch = "shape",
   cex = "size", lty = "linetype", lwd = "size", srt = "angle", adj = "hjust",
   bg = "fill", fg = "colour", min = "ymin", max = "ymax")
+
+# This was pryr::modify_lang(), but pryr is now archived from CRAN.
+.modify_lang <- function(x, f, ...) {
+  recurse <- function(y) {
+    lapply(y, .modify_lang, f = f, ...)
+  }
+
+  if (is.atomic(x) || is.name(x)) {
+    f(x, ...)
+  } else if (is.call(x)) {
+    as.call(recurse(x))
+  } else if (is.function(x)) {
+    formals(x) <- .modify_lang(formals(x), f, ...)
+    body(x) <- .modify_lang(body(x), f, ...)
+    x
+  } else if (is.pairlist(x)) {
+    as.pairlist(recurse(x))
+  } else if (is.expression(x)) {
+    as.expression(recurse(x))
+  } else if (is.list(x)) {
+    recurse(x)
+  } else {
+    stop("Unknown language class: ", paste(class(x), collapse = "/"),
+      call. = FALSE)
+  }
+}

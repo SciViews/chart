@@ -1,3 +1,7 @@
+# chart 1.5.5
+
+-   Dependency to {pryr} is removed, since the package is archived from CRAN. A copy of its `modify_lang()` function is added here to get rid of that dependency.
+
 # chart 1.5.4
 
 -   Uses `aka()`, `section()` and `label()` from {svBase} (>= 1.7.0). No more dependencies to {data.io} and {svMisc}.

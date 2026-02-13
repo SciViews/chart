@@ -226,7 +226,7 @@ chart.default <- function(data, specif = NULL, formula = NULL, mapping = NULL,
             vars <- all.vars(form)
             vars <- vars[vars %in% dnames]
             for (var in vars) {
-              expr <- pryr::modify_lang(expr, function(x)
+              expr <- .modify_lang(expr, function(x)
                 if (is.name(x) && identical(x, as.name(var)))
                   as.name(labels[[var]]) else x)
             }
